@@ -21,3 +21,5 @@ func _process(delta):
 		elif not down:
 			position.y -= speed * delta
 
+func get_size() -> Vector2:
+	return $Sprite.texture.get_size() * $Sprite.scale
