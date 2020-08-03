@@ -22,19 +22,19 @@ func _process(delta):
 func _on_RightGoal_body_entered(body):
 	if body == $Ball:
 		right_score += 1
-		print(global.play_to)
-		$Ball.restart(Vector2())
 		if right_score == global.play_to:
 			global.winner = "Right player"
 			get_tree().change_scene("res://menu/End.tscn")
+		else:
+			$Ball.restart(Vector2())
 
 
 
 func _on_LeftGoal_body_entered(body):
 	if body == $Ball:
 		left_score += 1
-		print(global.play_to)
-		$Ball.restart(Vector2())
 		if left_score == global.play_to:
 			global.winner = "Left player"
 			get_tree().change_scene("res://menu/End.tscn")
+		else:
+			$Ball.restart(Vector2())
