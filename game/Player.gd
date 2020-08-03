@@ -7,7 +7,7 @@ export var move_down : String = "ui_down"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$Sprite.modulate = Color(100, 100, 100)
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

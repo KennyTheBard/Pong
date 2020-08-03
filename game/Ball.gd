@@ -11,7 +11,6 @@ var velocity : Vector2 = Vector2()
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Timer.one_shot = true
-	restart()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -52,11 +51,12 @@ func _physics_process(delta):
 			# add the velocity length
 			velocity = velocity.length() * reflect_direction
 		else:
+
 			velocity = velocity.bounce(collision.normal)
 
 
-func restart():
-	position = Vector2()
+func restart(start_postion):
+	position = start_postion
 	speed = 0
 	$Timer.start(3)
 	show_timer = true

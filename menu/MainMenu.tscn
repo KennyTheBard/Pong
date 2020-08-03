@@ -1,0 +1,213 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Kenney Bold.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://menu/BallsManager.gd" type="Script" id=2]
+[ext_resource path="res://game/Wall.tscn" type="PackedScene" id=3]
+[ext_resource path="res://menu/MainMenu.gd" type="Script" id=4]
+[ext_resource path="res://menu/LocalMenu.gd" type="Script" id=5]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0 )
+colors = PoolColorArray( 0, 0, 0, 0.392157 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 64
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 24
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=5]
+font_data = ExtResource( 1 )
+
+[node name="Menu" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="Background" type="TextureRect" parent="."]
+margin_right = 1026.0
+margin_bottom = 606.0
+texture = SubResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackgroundActivity" type="Node2D" parent="."]
+
+[node name="Bounds" type="Node2D" parent="BackgroundActivity"]
+
+[node name="UpperWall" parent="BackgroundActivity/Bounds" instance=ExtResource( 3 )]
+position = Vector2( 522.421, -103.811 )
+scale = Vector2( 1.2, 1 )
+
+[node name="LowerWall" parent="BackgroundActivity/Bounds" instance=ExtResource( 3 )]
+position = Vector2( 519.148, 724.281 )
+scale = Vector2( 1.2, 1 )
+
+[node name="LeftWall" parent="BackgroundActivity/Bounds" instance=ExtResource( 3 )]
+position = Vector2( -119.395, 312.603 )
+rotation = 1.5708
+scale = Vector2( 1.1, 1 )
+
+[node name="RightWall" parent="BackgroundActivity/Bounds" instance=ExtResource( 3 )]
+position = Vector2( 1164.37, 284.491 )
+rotation = 1.5708
+scale = Vector2( 1.1, 1 )
+
+[node name="Balls" type="Node2D" parent="BackgroundActivity"]
+position = Vector2( 515.109, 300 )
+script = ExtResource( 2 )
+
+[node name="Darken" type="TextureRect" parent="."]
+margin_right = 1026.0
+margin_bottom = 606.0
+texture = SubResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainMenu" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MainMenu"]
+margin_left = 4.0
+margin_top = 2.0
+margin_right = 1025.0
+margin_bottom = 331.0
+custom_fonts/font = SubResource( 3 )
+text = "Pong"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Local" type="Button" parent="MainMenu"]
+margin_top = 259.0
+margin_right = 1023.0
+margin_bottom = 301.0
+focus_mode = 0
+custom_fonts/font = SubResource( 4 )
+action_mode = 0
+enabled_focus_mode = 0
+text = "Local"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Online" type="Button" parent="MainMenu"]
+margin_top = 326.203
+margin_right = 1023.0
+margin_bottom = 368.203
+focus_mode = 0
+custom_fonts/font = SubResource( 4 )
+disabled = true
+enabled_focus_mode = 0
+text = "Online"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Exit" type="Button" parent="MainMenu"]
+margin_left = 1.29236
+margin_top = 392.113
+margin_right = 1024.29
+margin_bottom = 434.113
+focus_mode = 0
+custom_fonts/font = SubResource( 4 )
+enabled_focus_mode = 0
+text = "Exit"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LocalMenu" type="Control" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LocalMenuBack" type="Button" parent="LocalMenu"]
+margin_left = 5.74731
+margin_top = 400.0
+margin_right = 509.747
+margin_bottom = 450.0
+focus_mode = 0
+custom_fonts/font = SubResource( 4 )
+enabled_focus_mode = 0
+text = "Back"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LocalMenuStart" type="Button" parent="LocalMenu"]
+margin_left = 520.437
+margin_top = 400.0
+margin_right = 1024.44
+margin_bottom = 450.0
+focus_mode = 0
+custom_fonts/font = SubResource( 4 )
+enabled_focus_mode = 0
+text = "Start"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ValueSlider" type="HSlider" parent="LocalMenu"]
+margin_left = 259.0
+margin_top = 321.0
+margin_right = 759.0
+margin_bottom = 337.0
+min_value = 1.0
+max_value = 20.0
+value = 1.0
+rounded = true
+tick_count = 20
+ticks_on_borders = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayTo" type="Label" parent="LocalMenu"]
+margin_left = 273.0
+margin_top = 252.0
+margin_right = 548.0
+margin_bottom = 292.0
+custom_fonts/font = SubResource( 5 )
+text = "Play  to"
+align = 2
+valign = 1
+
+[node name="Value" type="Label" parent="LocalMenu"]
+margin_left = 556.0
+margin_top = 254.0
+margin_right = 739.0
+margin_bottom = 293.0
+custom_fonts/font = SubResource( 5 )
+text = "1"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="MainMenu/Local" to="." method="_on_Local_pressed"]
+[connection signal="pressed" from="MainMenu/Exit" to="." method="_on_Exit_pressed"]
+[connection signal="pressed" from="LocalMenu/LocalMenuBack" to="." method="_on_LocalMenuBack_pressed"]
+[connection signal="pressed" from="LocalMenu/LocalMenuStart" to="LocalMenu" method="_on_LocalMenuStart_pressed"]
+[connection signal="value_changed" from="LocalMenu/ValueSlider" to="LocalMenu" method="_on_ValueSlider_value_changed"]
