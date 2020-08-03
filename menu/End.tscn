@@ -1,3 +1,73 @@
-[gd_scene format=2]
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://menu/End.gd" type="Script" id=1]
+[ext_resource path="res://Kenney Bold.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0 )
+colors = PoolColorArray( 0, 0, 0, 1 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 24
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=4]
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=5]
+font_data = ExtResource( 2 )
 
 [node name="End" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = -9.56665
+margin_top = -2.39172
+margin_right = 1042.43
+margin_bottom = 612.608
+texture = SubResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Winner" type="Label" parent="."]
+margin_top = 155.0
+margin_right = 1025.0
+margin_bottom = 304.0
+custom_fonts/font = SubResource( 3 )
+text = "placeholder"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackToMainMenu" type="Button" parent="."]
+margin_left = 222.905
+margin_top = 399.338
+margin_right = 805.905
+margin_bottom = 451.338
+custom_fonts/font = SubResource( 4 )
+text = "Back to Main Menu"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Replay" type="Button" parent="."]
+margin_left = 210.373
+margin_top = 341.634
+margin_right = 803.373
+margin_bottom = 391.634
+custom_fonts/font = SubResource( 5 )
+text = "Replay"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="BackToMainMenu" to="." method="_on_BackToMainMenu_pressed"]
+[connection signal="pressed" from="Replay" to="." method="_on_Replay_pressed"]

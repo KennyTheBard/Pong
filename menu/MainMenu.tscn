@@ -134,7 +134,6 @@ __meta__ = {
 }
 
 [node name="LocalMenu" type="Control" parent="."]
-visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 5 )
