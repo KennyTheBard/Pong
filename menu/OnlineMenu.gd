@@ -1,9 +1,6 @@
 extends Control
 
 
-onready var message : String = ""
-
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Username.text = network.my_info["name"]
@@ -24,15 +21,18 @@ func _player_disconnected(id):
 
 
 func _connected_ok():
-	message = "Connected!"
+	$Message.text = "Connected!"
+	$Message.add_color_override("font_color", Color(0, 1, 0))
 
 
 func _server_disconnected():
-	message = "Server kicked us!"
+	$Message.text = "Server kicked us!"
+	$Message.add_color_override("font_color", Color(1, 0, 0))
 
 
 func _connected_fail():
-	message = "Server unreachable!"
+	$Message.text = "Server unreachable!"
+	$Message.add_color_override("font_color", Color(1, 0, 0))
 
 
 remote func register_server(info):
