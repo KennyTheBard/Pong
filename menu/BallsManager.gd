@@ -2,10 +2,6 @@ extends Node2D
 
 onready var BallClass = preload("res://game/Ball.tscn")
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -20,8 +16,3 @@ func _ready():
 		instance.speed_per_sec = 0
 		instance.velocity = Vector2(rand_range(-1, 1), rand_range(-1, 1)).normalized()
 		add_child(instance)
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass

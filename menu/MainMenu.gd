@@ -3,13 +3,9 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$MainMenu.visible = true
-	$LocalMenu.visible = false
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+	for c in $Menus.get_children():
+		c.visible = false
+	$Menus/MainMenu.visible = true
 
 
 func _on_Exit_pressed():
@@ -17,10 +13,24 @@ func _on_Exit_pressed():
 
 
 func _on_Local_pressed():
-	$MainMenu.visible = false
-	$LocalMenu.visible = true
+	for c in $Menus.get_children():
+		c.visible = false
+	$Menus/LocalMenu.visible = true
 
 
 func _on_LocalMenuBack_pressed():
-	$LocalMenu.visible = false
-	$MainMenu.visible = true
+	for c in $Menus.get_children():
+		c.visible = false
+	$Menus/MainMenu.visible = true
+
+
+func _on_Online_pressed():
+	for c in $Menus.get_children():
+		c.visible = false
+	$Menus/OnlineMenu.visible = true
+
+
+func _on_OnlineMenuBack_pressed():
+	for c in $Menus.get_children():
+		c.visible = false
+	$Menus/MainMenu.visible = true

@@ -8,6 +8,7 @@ export var show_timer : bool = true
 var speed : float
 var velocity : Vector2 = Vector2()
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Timer.one_shot = true
@@ -51,7 +52,6 @@ func _physics_process(delta):
 			# add the velocity length
 			velocity = velocity.length() * reflect_direction
 		else:
-
 			velocity = velocity.bounce(collision.normal)
 
 

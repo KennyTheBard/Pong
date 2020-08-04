@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Kenney Bold.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://menu/BallsManager.gd" type="Script" id=2]
 [ext_resource path="res://game/Wall.tscn" type="PackedScene" id=3]
 [ext_resource path="res://menu/MainMenu.gd" type="Script" id=4]
 [ext_resource path="res://menu/LocalMenu.gd" type="Script" id=5]
+[ext_resource path="res://menu/OnlineMenu.gd" type="Script" id=6]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0 )
@@ -14,14 +15,25 @@ colors = PoolColorArray( 0, 0, 0, 0.392157 )
 gradient = SubResource( 1 )
 
 [sub_resource type="DynamicFont" id=3]
-size = 64
-font_data = ExtResource( 1 )
-
-[sub_resource type="DynamicFont" id=4]
 size = 24
 font_data = ExtResource( 1 )
 
+[sub_resource type="DynamicFont" id=4]
+size = 64
+font_data = ExtResource( 1 )
+
 [sub_resource type="DynamicFont" id=5]
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 24
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=7]
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 24
 font_data = ExtResource( 1 )
 
 [node name="Menu" type="Node2D"]
@@ -71,32 +83,27 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MainMenu" type="Control" parent="."]
+[node name="Menus" type="Control" parent="."]
 margin_right = 40.0
 margin_bottom = 40.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="MainMenu"]
-margin_left = 4.0
-margin_top = 2.0
-margin_right = 1025.0
-margin_bottom = 331.0
-custom_fonts/font = SubResource( 3 )
-text = "Pong"
-align = 1
-valign = 1
+[node name="MainMenu" type="Control" parent="Menus"]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Local" type="Button" parent="MainMenu"]
+[node name="Local" type="Button" parent="Menus/MainMenu"]
 margin_top = 259.0
 margin_right = 1023.0
 margin_bottom = 301.0
 focus_mode = 0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 3 )
 action_mode = 0
 enabled_focus_mode = 0
 text = "Local"
@@ -105,13 +112,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Online" type="Button" parent="MainMenu"]
+[node name="Online" type="Button" parent="Menus/MainMenu"]
 margin_top = 326.203
 margin_right = 1023.0
 margin_bottom = 368.203
 focus_mode = 0
-custom_fonts/font = SubResource( 4 )
-disabled = true
+custom_fonts/font = SubResource( 3 )
 enabled_focus_mode = 0
 text = "Online"
 flat = true
@@ -119,13 +125,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Exit" type="Button" parent="MainMenu"]
+[node name="Exit" type="Button" parent="Menus/MainMenu"]
 margin_left = 1.29236
 margin_top = 392.113
 margin_right = 1024.29
 margin_bottom = 434.113
 focus_mode = 0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 3 )
 enabled_focus_mode = 0
 text = "Exit"
 flat = true
@@ -133,7 +139,21 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="LocalMenu" type="Control" parent="."]
+[node name="Logo" type="Label" parent="Menus/MainMenu"]
+margin_left = 4.0
+margin_top = 2.0
+margin_right = 1025.0
+margin_bottom = 331.0
+custom_fonts/font = SubResource( 4 )
+text = "Pong"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LocalMenu" type="Control" parent="Menus"]
+visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 5 )
@@ -141,13 +161,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="LocalMenuBack" type="Button" parent="LocalMenu"]
-margin_left = 5.74731
+[node name="LocalMenuBack" type="Button" parent="Menus/LocalMenu"]
+margin_left = 1.45141
 margin_top = 400.0
-margin_right = 509.747
+margin_right = 505.451
 margin_bottom = 450.0
 focus_mode = 0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 3 )
 enabled_focus_mode = 0
 text = "Back"
 flat = true
@@ -155,13 +175,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="LocalMenuStart" type="Button" parent="LocalMenu"]
+[node name="LocalMenuStart" type="Button" parent="Menus/LocalMenu"]
 margin_left = 520.437
 margin_top = 400.0
 margin_right = 1024.44
 margin_bottom = 450.0
 focus_mode = 0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 3 )
 enabled_focus_mode = 0
 text = "Start"
 flat = true
@@ -169,11 +189,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ValueSlider" type="HSlider" parent="LocalMenu"]
-margin_left = 259.0
-margin_top = 321.0
-margin_right = 759.0
-margin_bottom = 337.0
+[node name="ValueSlider" type="HSlider" parent="Menus/LocalMenu"]
+margin_left = 261.105
+margin_top = 324.158
+margin_right = 761.105
+margin_bottom = 340.158
 min_value = 1.0
 max_value = 20.0
 value = 1.0
@@ -184,29 +204,133 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="PlayTo" type="Label" parent="LocalMenu"]
-margin_left = 273.0
-margin_top = 252.0
-margin_right = 548.0
-margin_bottom = 292.0
+[node name="PlayTo" type="Label" parent="Menus/LocalMenu"]
+margin_left = 275.105
+margin_top = 255.158
+margin_right = 550.105
+margin_bottom = 295.158
 custom_fonts/font = SubResource( 5 )
 text = "Play  to"
 align = 2
 valign = 1
 
-[node name="Value" type="Label" parent="LocalMenu"]
-margin_left = 556.0
-margin_top = 254.0
-margin_right = 739.0
-margin_bottom = 293.0
+[node name="Value" type="Label" parent="Menus/LocalMenu"]
+margin_left = 558.105
+margin_top = 257.158
+margin_right = 741.105
+margin_bottom = 296.158
 custom_fonts/font = SubResource( 5 )
 text = "1"
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="pressed" from="MainMenu/Local" to="." method="_on_Local_pressed"]
-[connection signal="pressed" from="MainMenu/Exit" to="." method="_on_Exit_pressed"]
-[connection signal="pressed" from="LocalMenu/LocalMenuBack" to="." method="_on_LocalMenuBack_pressed"]
-[connection signal="pressed" from="LocalMenu/LocalMenuStart" to="LocalMenu" method="_on_LocalMenuStart_pressed"]
-[connection signal="value_changed" from="LocalMenu/ValueSlider" to="LocalMenu" method="_on_ValueSlider_value_changed"]
+
+[node name="Logo" type="Label" parent="Menus/LocalMenu"]
+margin_left = 4.0
+margin_top = 2.0
+margin_right = 1025.0
+margin_bottom = 331.0
+custom_fonts/font = SubResource( 4 )
+text = "Pong"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OnlineMenu" type="Control" parent="Menus"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Host" type="Button" parent="Menus/OnlineMenu"]
+margin_left = 319.655
+margin_top = 399.053
+margin_right = 669.655
+margin_bottom = 457.053
+focus_mode = 0
+custom_fonts/font = SubResource( 6 )
+enabled_focus_mode = 0
+text = "Host"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Join" type="Button" parent="Menus/OnlineMenu"]
+margin_left = 636.0
+margin_top = 402.0
+margin_right = 937.0
+margin_bottom = 460.0
+focus_mode = 0
+custom_fonts/font = SubResource( 6 )
+enabled_focus_mode = 0
+text = "Join"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OnlineMenuBack" type="Button" parent="Menus/OnlineMenu"]
+margin_left = 71.0
+margin_top = 399.0
+margin_right = 319.0
+margin_bottom = 457.0
+focus_mode = 0
+custom_fonts/font = SubResource( 6 )
+enabled_focus_mode = 0
+text = "Back"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Username" type="TextEdit" parent="Menus/OnlineMenu"]
+margin_left = 434.097
+margin_top = 295.173
+margin_right = 801.097
+margin_bottom = 360.173
+custom_fonts/font = SubResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UsernameLabel" type="Label" parent="Menus/OnlineMenu"]
+margin_left = 169.097
+margin_top = 306.173
+margin_right = 411.097
+margin_bottom = 350.173
+custom_fonts/font = SubResource( 8 )
+text = "Username"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Logo" type="Label" parent="Menus/OnlineMenu"]
+margin_left = 2.56805
+margin_top = 2.0
+margin_right = 1023.57
+margin_bottom = 331.0
+custom_fonts/font = SubResource( 4 )
+text = "Pong"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Menus/MainMenu/Local" to="." method="_on_Local_pressed"]
+[connection signal="pressed" from="Menus/MainMenu/Online" to="." method="_on_Online_pressed"]
+[connection signal="pressed" from="Menus/MainMenu/Exit" to="." method="_on_Exit_pressed"]
+[connection signal="pressed" from="Menus/LocalMenu/LocalMenuBack" to="." method="_on_LocalMenuBack_pressed"]
+[connection signal="pressed" from="Menus/LocalMenu/LocalMenuStart" to="Menus/LocalMenu" method="_on_LocalMenuStart_pressed"]
+[connection signal="value_changed" from="Menus/LocalMenu/ValueSlider" to="Menus/LocalMenu" method="_on_ValueSlider_value_changed"]
+[connection signal="pressed" from="Menus/OnlineMenu/Host" to="Menus/OnlineMenu" method="_on_Host_pressed"]
+[connection signal="pressed" from="Menus/OnlineMenu/Join" to="Menus/OnlineMenu" method="_on_Join_pressed"]
+[connection signal="pressed" from="Menus/OnlineMenu/OnlineMenuBack" to="." method="_on_OnlineMenuBack_pressed"]
+[connection signal="text_changed" from="Menus/OnlineMenu/Username" to="Menus/OnlineMenu" method="_on_Username_text_changed"]

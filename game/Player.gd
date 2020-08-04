@@ -19,6 +19,7 @@ func _process(delta):
 		if not up:
 			position.y += speed * delta
 		elif not down:
+
 			position.y -= speed * delta
 
 func get_size() -> Vector2:

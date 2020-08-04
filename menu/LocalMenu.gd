@@ -10,15 +10,9 @@ func _ready():
 	$ValueSlider.value = value
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
-
 func _on_ValueSlider_value_changed(sliderValue):
 	value = sliderValue
 	$Value.text = str(value)
-
 
 
 func _on_LocalMenuStart_pressed():
