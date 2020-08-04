@@ -289,15 +289,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Username" type="TextEdit" parent="Menus/OnlineMenu"]
+[node name="Username" type="LineEdit" parent="Menus/OnlineMenu"]
 margin_left = 434.097
 margin_top = 295.173
 margin_right = 801.097
 margin_bottom = 360.173
 custom_fonts/font = SubResource( 7 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+max_length = 20
+clear_button_enabled = true
 
 [node name="UsernameLabel" type="Label" parent="Menus/OnlineMenu"]
 margin_left = 169.097

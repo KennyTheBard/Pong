@@ -47,13 +47,12 @@ remote func register_player(info):
 	network.player_info[id] = info
 
 
-func _on_Username_text_changed():
-	var username = $Username.text
+func _on_Username_text_changed(username):
 	username = username.replace(" ","").strip_escapes()
 	if username.length() > 20:
 		username = username.substr(0, 20)
 	$Username.text = username
-	$Username.cursor_set_column(username.length())	
+	$Username.set_cursor_position(username.length())
 	network.my_info["name"] = username
 
 
