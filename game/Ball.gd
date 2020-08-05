@@ -1,8 +1,8 @@
 extends KinematicBody2D
 
-export var start_speed : float = 600
-export var max_speed : float = 1200
-export var speed_per_sec : float = 25
+export var start_speed : float = 500
+export var max_speed : float = 1500
+export var speed_per_sec : float = 30
 export var show_timer : bool = true
 
 var speed : float
@@ -53,6 +53,7 @@ func _physics_process(delta):
 			velocity = velocity.length() * reflect_direction
 		else:
 			velocity = velocity.bounce(collision.normal)
+
 
 
 func restart(start_postion):

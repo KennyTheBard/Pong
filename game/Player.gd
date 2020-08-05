@@ -5,22 +5,25 @@ export var speed : float = 1000
 export var move_up : String = "ui_up"
 export var move_down : String = "ui_down"
 
+var velocity : Vector2 = Vector2()
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	var up = Input.is_action_pressed(move_up)
-	var down = Input.is_action_pressed(move_down)
+func _physics_process(delta):
+	velocity = Vector2()
 	
-	if up or down:
-		if not up:
-			position.y += speed * delta
-		elif not down:
+	if Input.is_action_pressed(move_up):
+		velocity.y -= speed * delta
+	
+	if Input.is_action_pressed(move_down):
+		velocity.y += speed * delta
+	
+	move_and_collide(velocity)
 
-			position.y -= speed * delta
 
 func get_size() -> Vector2:
 	return $Sprite.texture.get_size() * $Sprite.scale

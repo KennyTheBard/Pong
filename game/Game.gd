@@ -8,15 +8,10 @@ func _ready():
 	$Ball.restart(Vector2())
 
 
-
 func _process(delta):
 	# update score
 	$Score/LeftScore.text = str(left_score)
 	$Score/RightScore.text = str(right_score)
-	# bound players' positions inside the game
-	$Player1.position.y = max(-250, min(250, $Player1.position.y))
-	$Player2.position.y = max(-250, min(250, $Player2.position.y))
-
 
 
 func _on_RightGoal_body_entered(body):
@@ -27,7 +22,6 @@ func _on_RightGoal_body_entered(body):
 			get_tree().change_scene("res://menu/End.tscn")
 		else:
 			$Ball.restart(Vector2())
-
 
 
 func _on_LeftGoal_body_entered(body):
