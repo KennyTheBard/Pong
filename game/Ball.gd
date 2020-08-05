@@ -55,7 +55,6 @@ func _physics_process(delta):
 			velocity = velocity.bounce(collision.normal)
 
 
-
 func restart(start_postion):
 	position = start_postion
 	speed = 0
@@ -69,3 +68,17 @@ func _on_Timer_timeout():
 	velocity = direction
 	speed = start_speed
 	show_timer = false
+
+
+func get_state():
+	return {
+		"speed" : speed,
+		"velocity": velocity,
+		"position": position
+	}
+
+
+func set_state(state):
+	speed = state["speed"]
+	velocity = state["velocity"]
+	position = state["position"]

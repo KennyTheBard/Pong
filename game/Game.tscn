@@ -58,12 +58,12 @@ shape = SubResource( 3 )
 position = Vector2( 525, 0 )
 shape = SubResource( 3 )
 
-[node name="Player1" parent="." instance=ExtResource( 5 )]
+[node name="LeftPlayer" parent="." instance=ExtResource( 5 )]
 position = Vector2( -475, 0 )
 move_up = "w"
 move_down = "s"
 
-[node name="Player2" parent="." instance=ExtResource( 5 )]
+[node name="RightPlayer" parent="." instance=ExtResource( 5 )]
 position = Vector2( 475, 0 )
 move_up = "arrow_up"
 move_down = "arrow_down"

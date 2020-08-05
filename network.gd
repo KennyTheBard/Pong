@@ -4,9 +4,9 @@ const DEFAULT_IP = "127.0.0.1"
 const DEFAULT_PORT = 10101
 const MAX_PLAYERS = 2
 
-var player_info = {}
+var other_player_info = null
+var player_info = { "name" : "Anon" + str(OS.get_system_time_msecs() & 10000) }
 
-var my_info = { "name" : "Anon" + str(OS.get_system_time_msecs()) }
 
 func create_server():
 	var peer = NetworkedMultiplayerENet.new()

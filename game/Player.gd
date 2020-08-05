@@ -16,12 +16,13 @@ func _ready():
 func _physics_process(delta):
 	velocity = Vector2()
 	
+	# get inputs
 	if Input.is_action_pressed(move_up):
 		velocity.y -= speed * delta
-	
 	if Input.is_action_pressed(move_down):
 		velocity.y += speed * delta
 	
+	# resolve collision
 	move_and_collide(velocity)
 
 
