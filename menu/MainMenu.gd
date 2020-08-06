@@ -36,6 +36,12 @@ func _on_OnlineMenuBack_pressed():
 	$Menus/MainMenu.visible = true
 
 
+func _on_Host_pressed():
+	for c in $Menus.get_children():
+		c.visible = false
+	$Menus/HostMenu.visible = true
+
+
 func _on_HostMenuBack_pressed():
 	for c in $Menus.get_children():
 		c.visible = false
@@ -43,7 +49,14 @@ func _on_HostMenuBack_pressed():
 	network.close_connection()
 
 
-func _on_Host_pressed():
+func _on_Join_pressed():
 	for c in $Menus.get_children():
 		c.visible = false
-	$Menus/HostMenu.visible = true
+	$Menus/JoinMenu.visible = true
+
+
+func _on_JoinMenuBack_pressed():
+	for c in $Menus.get_children():
+		c.visible = false
+	$Menus/OnlineMenu.visible = true
+	network.close_connection()

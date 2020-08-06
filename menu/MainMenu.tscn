@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Kenney Bold.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://menu/BallsManager.gd" type="Script" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://menu/OnlineMenu.gd" type="Script" id=6]
 [ext_resource path="res://menu/HostMenu.gd" type="Script" id=7]
 [ext_resource path="res://Kenney Future.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://menu/JoinMenu.gd" type="Script" id=9]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0 )
@@ -43,6 +44,10 @@ font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=10]
 font_data = ExtResource( 8 )
+
+[sub_resource type="DynamicFont" id=11]
+size = 32
+font_data = ExtResource( 1 )
 
 [node name="Menu" type="Node2D"]
 script = ExtResource( 4 )
@@ -351,6 +356,7 @@ __meta__ = {
 }
 
 [node name="HostMenu" type="Control" parent="Menus"]
+visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 7 )
@@ -480,6 +486,135 @@ scroll_following = true
 [node name="JoinMenu" type="Control" parent="Menus"]
 margin_right = 40.0
 margin_bottom = 40.0
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Logo" type="Label" parent="Menus/JoinMenu"]
+margin_left = 2.56805
+margin_top = 2.0
+margin_right = 1023.57
+margin_bottom = 331.0
+custom_fonts/font = SubResource( 4 )
+text = "Pong"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Form" type="Control" parent="Menus/JoinMenu"]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="IPLabel" type="Label" parent="Menus/JoinMenu/Form"]
+margin_left = 169.097
+margin_top = 274.317
+margin_right = 411.097
+margin_bottom = 318.317
+custom_fonts/font = SubResource( 6 )
+text = "IP"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="IP" type="LineEdit" parent="Menus/JoinMenu/Form"]
+margin_left = 434.097
+margin_top = 263.317
+margin_right = 801.097
+margin_bottom = 328.317
+custom_fonts/font = SubResource( 7 )
+max_length = 15
+clear_button_enabled = true
+caret_blink = true
+caret_blink_speed = 0.35
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PortLabel" type="Label" parent="Menus/JoinMenu/Form"]
+margin_left = 169.097
+margin_top = 371.257
+margin_right = 411.097
+margin_bottom = 415.257
+custom_fonts/font = SubResource( 6 )
+text = "Port"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Port" type="LineEdit" parent="Menus/JoinMenu/Form"]
+margin_left = 434.097
+margin_top = 360.257
+margin_right = 801.097
+margin_bottom = 425.257
+custom_fonts/font = SubResource( 7 )
+max_length = 5
+clear_button_enabled = true
+caret_blink = true
+caret_blink_speed = 0.35
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="JoinServer" type="Button" parent="Menus/JoinMenu"]
+margin_left = 475.0
+margin_top = 484.0
+margin_right = 1022.0
+margin_bottom = 542.0
+focus_mode = 0
+custom_fonts/font = SubResource( 8 )
+enabled_focus_mode = 0
+text = "Join server"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CancelJoining" type="Button" parent="Menus/JoinMenu"]
+margin_left = 475.0
+margin_top = 484.0
+margin_right = 1022.0
+margin_bottom = 542.0
+focus_mode = 0
+custom_fonts/font = SubResource( 8 )
+enabled_focus_mode = 0
+text = "Cancel"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="JoinMenuBack" type="Button" parent="Menus/JoinMenu"]
+margin_left = 9.0
+margin_top = 484.0
+margin_right = 564.0
+margin_bottom = 542.0
+focus_mode = 0
+custom_fonts/font = SubResource( 8 )
+enabled_focus_mode = 0
+text = "Back"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Loading" type="Label" parent="Menus/JoinMenu"]
+margin_left = 383.149
+margin_top = 335.071
+margin_right = 634.149
+margin_bottom = 383.071
+custom_fonts/font = SubResource( 11 )
+text = "Joining"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="Menus/MainMenu/Local" to="." method="_on_Local_pressed"]
 [connection signal="pressed" from="Menus/MainMenu/Online" to="." method="_on_Online_pressed"]
 [connection signal="pressed" from="Menus/MainMenu/Exit" to="." method="_on_Exit_pressed"]
@@ -488,10 +623,15 @@ margin_bottom = 40.0
 [connection signal="value_changed" from="Menus/LocalMenu/ValueSlider" to="Menus/LocalMenu" method="_on_ValueSlider_value_changed"]
 [connection signal="text_changed" from="Menus/OnlineMenu/Username" to="Menus/OnlineMenu" method="_on_Username_text_changed"]
 [connection signal="pressed" from="Menus/OnlineMenu/Host" to="." method="_on_Host_pressed"]
-[connection signal="pressed" from="Menus/OnlineMenu/Join" to="Menus/OnlineMenu" method="_on_Join_pressed"]
+[connection signal="pressed" from="Menus/OnlineMenu/Join" to="." method="_on_Join_pressed"]
 [connection signal="pressed" from="Menus/OnlineMenu/OnlineMenuBack" to="." method="_on_OnlineMenuBack_pressed"]
 [connection signal="text_changed" from="Menus/HostMenu/IP" to="Menus/HostMenu" method="_on_IP_text_changed"]
 [connection signal="text_changed" from="Menus/HostMenu/Port" to="Menus/HostMenu" method="_on_Port_text_changed"]
 [connection signal="pressed" from="Menus/HostMenu/StartServer" to="Menus/HostMenu" method="_on_StartServer_pressed"]
 [connection signal="pressed" from="Menus/HostMenu/StopServer" to="Menus/HostMenu" method="_on_StopServer_pressed"]
 [connection signal="pressed" from="Menus/HostMenu/HostMenuBack" to="." method="_on_HostMenuBack_pressed"]
+[connection signal="text_changed" from="Menus/JoinMenu/Form/IP" to="Menus/JoinMenu" method="_on_IP_text_changed"]
+[connection signal="text_changed" from="Menus/JoinMenu/Form/Port" to="Menus/JoinMenu" method="_on_Port_text_changed"]
+[connection signal="pressed" from="Menus/JoinMenu/JoinServer" to="Menus/JoinMenu" method="_on_JoinServer_pressed"]
+[connection signal="pressed" from="Menus/JoinMenu/CancelJoining" to="Menus/JoinMenu" method="_on_CancelJoining_pressed"]
+[connection signal="pressed" from="Menus/JoinMenu/JoinMenuBack" to="." method="_on_JoinMenuBack_pressed"]

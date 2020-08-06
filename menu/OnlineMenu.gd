@@ -54,6 +54,3 @@ func _on_Username_text_changed(username):
 	$Username.set_cursor_position(username.length())
 	network.player_info["name"] = username
 
-
-func _on_Join_pressed():
-	network.join_server()

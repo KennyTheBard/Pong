@@ -42,3 +42,7 @@ func _on_StopServer_pressed():
 	$StopServer.visible = false
 	network.close_connection()
 	_log("server stopped")
+
+
+func _on_JoinServer_pressed():
+	pass # Replace with function body.
