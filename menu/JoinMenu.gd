@@ -54,3 +54,5 @@ func _on_CancelJoining_pressed():
 	
 	$JoinServer.visible = true
 	$CancelJoining.visible = false
+	
+	network.close_connection()
