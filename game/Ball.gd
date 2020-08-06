@@ -36,11 +36,11 @@ func _process(delta):
 func _physics_process(delta):
 	var collision = move_and_collide(velocity * delta)
 	if collision != null:
-		if collision.collider.has_method("get_size"):
+		if collision.collider.has_method("get_paddle_height"):
 			var collider = collision.collider
 			
 			# reflect based on distance to the center of the paddle 
-			var t = abs(position.y - collider.position.y) / (collider.get_size().y / 2)
+			var t = abs(position.y - collider.position.y) / (collider.get_paddle_height() / 2)
 			var angle_sign = sign(position.y - collider.position.y)
 			var reflect_angle = angle_sign * lerp_angle(0, PI/4, t)
 			var reflect_direction = Vector2(cos(reflect_angle), sin(reflect_angle))

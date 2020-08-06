@@ -12,51 +12,55 @@ func _on_Exit_pressed():
 	get_tree().quit()
 
 
-func _on_Local_pressed():
+func _change_menu(menu):
 	for c in $Menus.get_children():
 		c.visible = false
-	$Menus/LocalMenu.visible = true
+	menu.visible = true
+
+func _on_Local_pressed():
+	_change_menu($Menus/LocalMenu)
 
 
 func _on_LocalMenuBack_pressed():
-	for c in $Menus.get_children():
-		c.visible = false
-	$Menus/MainMenu.visible = true
-
+	_change_menu($Menus/MainMenu)
 
 func _on_Online_pressed():
-	for c in $Menus.get_children():
-		c.visible = false
-	$Menus/OnlineMenu.visible = true
+	_change_menu($Menus/OnlineMenu)
 
 
 func _on_OnlineMenuBack_pressed():
-	for c in $Menus.get_children():
-		c.visible = false
-	$Menus/MainMenu.visible = true
+	_change_menu($Menus/MainMenu)
 
 
 func _on_Host_pressed():
-	for c in $Menus.get_children():
-		c.visible = false
-	$Menus/HostMenu.visible = true
+	_change_menu($Menus/HostMenu)
 
 
 func _on_HostMenuBack_pressed():
-	for c in $Menus.get_children():
-		c.visible = false
-	$Menus/OnlineMenu.visible = true
 	network.close_connection()
+	_change_menu($Menus/OnlineMenu)
 
 
 func _on_Join_pressed():
-	for c in $Menus.get_children():
-		c.visible = false
-	$Menus/JoinMenu.visible = true
+	_change_menu($Menus/JoinMenu)
 
 
 func _on_JoinMenuBack_pressed():
-	for c in $Menus.get_children():
-		c.visible = false
-	$Menus/OnlineMenu.visible = true
 	network.close_connection()
+	_change_menu($Menus/OnlineMenu)
+
+
+func _on_Singleplayer_pressed():
+	_change_menu($Menus/SingleplayerMenu)
+
+
+func _on_SPMenuBack_pressed():
+	_change_menu($Menus/MainMenu)
+
+
+func _on_Multiplayer_pressed():
+	_change_menu($Menus/MultiplayerMenu)
+
+
+func _on_MPMenuBack_pressed():
+	_change_menu($Menus/MainMenu)

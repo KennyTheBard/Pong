@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Kenney Bold.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://menu/BallsManager.gd" type="Script" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://menu/HostMenu.gd" type="Script" id=7]
 [ext_resource path="res://Kenney Future.ttf" type="DynamicFontData" id=8]
 [ext_resource path="res://menu/JoinMenu.gd" type="Script" id=9]
+[ext_resource path="res://menu/SingleplayerMenu.gd" type="Script" id=10]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0 )
@@ -17,12 +18,12 @@ colors = PoolColorArray( 0, 0, 0, 0.392157 )
 [sub_resource type="GradientTexture" id=2]
 gradient = SubResource( 1 )
 
-[sub_resource type="DynamicFont" id=3]
-size = 24
-font_data = ExtResource( 1 )
-
 [sub_resource type="DynamicFont" id=4]
 size = 64
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 24
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=5]
@@ -104,50 +105,8 @@ __meta__ = {
 }
 
 [node name="MainMenu" type="Control" parent="Menus"]
-visible = false
 margin_right = 40.0
 margin_bottom = 40.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Local" type="Button" parent="Menus/MainMenu"]
-margin_top = 259.0
-margin_right = 1023.0
-margin_bottom = 301.0
-focus_mode = 0
-custom_fonts/font = SubResource( 3 )
-action_mode = 0
-enabled_focus_mode = 0
-text = "Local"
-flat = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Online" type="Button" parent="Menus/MainMenu"]
-margin_top = 326.203
-margin_right = 1023.0
-margin_bottom = 368.203
-focus_mode = 0
-custom_fonts/font = SubResource( 3 )
-enabled_focus_mode = 0
-text = "Online"
-flat = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Exit" type="Button" parent="Menus/MainMenu"]
-margin_left = 1.29236
-margin_top = 392.113
-margin_right = 1024.29
-margin_bottom = 434.113
-focus_mode = 0
-custom_fonts/font = SubResource( 3 )
-enabled_focus_mode = 0
-text = "Exit"
-flat = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -165,11 +124,195 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Singleplayer" type="Button" parent="Menus/MainMenu"]
+margin_left = 300.0
+margin_top = 259.0
+margin_right = 700.0
+margin_bottom = 301.0
+focus_mode = 0
+custom_fonts/font = SubResource( 3 )
+action_mode = 0
+enabled_focus_mode = 0
+text = "Singleplayer"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Multiplayer" type="Button" parent="Menus/MainMenu"]
+margin_left = 300.0
+margin_top = 326.203
+margin_right = 700.0
+margin_bottom = 368.203
+focus_mode = 0
+custom_fonts/font = SubResource( 3 )
+enabled_focus_mode = 0
+text = "Multiplayer"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Exit" type="Button" parent="Menus/MainMenu"]
+margin_left = 300.0
+margin_top = 392.113
+margin_right = 700.0
+margin_bottom = 434.113
+focus_mode = 0
+custom_fonts/font = SubResource( 3 )
+enabled_focus_mode = 0
+text = "Exit"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SingleplayerMenu" type="Control" parent="Menus"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Logo" type="Label" parent="Menus/SingleplayerMenu"]
+margin_left = 4.0
+margin_top = 2.0
+margin_right = 1025.0
+margin_bottom = 331.0
+custom_fonts/font = SubResource( 4 )
+text = "Pong"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AgainstComputer" type="Button" parent="Menus/SingleplayerMenu"]
+margin_left = 300.0
+margin_top = 259.0
+margin_right = 700.0
+margin_bottom = 301.0
+focus_mode = 0
+custom_fonts/font = SubResource( 3 )
+action_mode = 0
+enabled_focus_mode = 0
+text = "Against computer"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Training" type="Button" parent="Menus/SingleplayerMenu"]
+margin_left = 300.0
+margin_top = 326.203
+margin_right = 700.0
+margin_bottom = 368.203
+focus_mode = 0
+custom_fonts/font = SubResource( 3 )
+disabled = true
+enabled_focus_mode = 0
+text = "Training"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SPMenuBack" type="Button" parent="Menus/SingleplayerMenu"]
+margin_left = 300.0
+margin_top = 392.113
+margin_right = 700.0
+margin_bottom = 434.113
+focus_mode = 0
+custom_fonts/font = SubResource( 3 )
+enabled_focus_mode = 0
+text = "Back"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MultiplayerMenu" type="Control" parent="Menus"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Logo" type="Label" parent="Menus/MultiplayerMenu"]
+margin_left = 4.0
+margin_top = 2.0
+margin_right = 1025.0
+margin_bottom = 331.0
+custom_fonts/font = SubResource( 4 )
+text = "Pong"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Local" type="Button" parent="Menus/MultiplayerMenu"]
+margin_left = 300.0
+margin_top = 259.0
+margin_right = 700.0
+margin_bottom = 301.0
+focus_mode = 0
+custom_fonts/font = SubResource( 3 )
+action_mode = 0
+enabled_focus_mode = 0
+text = "Local"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Online" type="Button" parent="Menus/MultiplayerMenu"]
+margin_left = 300.0
+margin_top = 326.203
+margin_right = 700.0
+margin_bottom = 368.203
+focus_mode = 0
+custom_fonts/font = SubResource( 3 )
+enabled_focus_mode = 0
+text = "Online"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MPMenuBack" type="Button" parent="Menus/MultiplayerMenu"]
+margin_left = 300.0
+margin_top = 392.113
+margin_right = 700.0
+margin_bottom = 434.113
+focus_mode = 0
+custom_fonts/font = SubResource( 3 )
+enabled_focus_mode = 0
+text = "Back"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="LocalMenu" type="Control" parent="Menus"]
 visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Logo" type="Label" parent="Menus/LocalMenu"]
+margin_left = 4.0
+margin_top = 2.0
+margin_right = 1025.0
+margin_bottom = 331.0
+custom_fonts/font = SubResource( 4 )
+text = "Pong"
+align = 1
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -234,19 +377,6 @@ margin_right = 741.105
 margin_bottom = 296.158
 custom_fonts/font = SubResource( 5 )
 text = "1"
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Logo" type="Label" parent="Menus/LocalMenu"]
-margin_left = 4.0
-margin_top = 2.0
-margin_right = 1025.0
-margin_bottom = 331.0
-custom_fonts/font = SubResource( 4 )
-text = "Pong"
-align = 1
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -484,6 +614,7 @@ bbcode_enabled = true
 scroll_following = true
 
 [node name="JoinMenu" type="Control" parent="Menus"]
+visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 9 )
@@ -605,19 +736,26 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Loading" type="Label" parent="Menus/JoinMenu"]
-margin_left = 383.149
-margin_top = 335.071
-margin_right = 634.149
-margin_bottom = 383.071
+[node name="Message" type="Label" parent="Menus/JoinMenu"]
+margin_left = 6.0
+margin_top = 303.0
+margin_right = 1021.0
+margin_bottom = 381.0
 custom_fonts/font = SubResource( 11 )
 text = "Joining"
+align = 1
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="pressed" from="Menus/MainMenu/Local" to="." method="_on_Local_pressed"]
-[connection signal="pressed" from="Menus/MainMenu/Online" to="." method="_on_Online_pressed"]
+[connection signal="pressed" from="Menus/MainMenu/Singleplayer" to="." method="_on_Singleplayer_pressed"]
+[connection signal="pressed" from="Menus/MainMenu/Multiplayer" to="." method="_on_Multiplayer_pressed"]
 [connection signal="pressed" from="Menus/MainMenu/Exit" to="." method="_on_Exit_pressed"]
+[connection signal="pressed" from="Menus/SingleplayerMenu/AgainstComputer" to="Menus/SingleplayerMenu" method="_on_AgainstComputer_pressed"]
+[connection signal="pressed" from="Menus/SingleplayerMenu/SPMenuBack" to="." method="_on_SPMenuBack_pressed"]
+[connection signal="pressed" from="Menus/MultiplayerMenu/Local" to="." method="_on_Local_pressed"]
+[connection signal="pressed" from="Menus/MultiplayerMenu/Online" to="." method="_on_Online_pressed"]
+[connection signal="pressed" from="Menus/MultiplayerMenu/MPMenuBack" to="." method="_on_MPMenuBack_pressed"]
 [connection signal="pressed" from="Menus/LocalMenu/LocalMenuBack" to="." method="_on_LocalMenuBack_pressed"]
 [connection signal="pressed" from="Menus/LocalMenu/LocalMenuStart" to="Menus/LocalMenu" method="_on_LocalMenuStart_pressed"]
 [connection signal="value_changed" from="Menus/LocalMenu/ValueSlider" to="Menus/LocalMenu" method="_on_ValueSlider_value_changed"]

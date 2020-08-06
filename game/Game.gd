@@ -1,5 +1,7 @@
 extends Node2D
 
+onready var controllerClass = preload("res://game/Controller.tscn")
+
 var left_score : int = 0
 var right_score : int = 0
 
@@ -18,7 +20,13 @@ func _ready():
 		else:
 			$LeftPlayer.move_up = ""
 			$LeftPlayer.move_down = ""
-		
+	
+	# game against bot
+	if global.against_computer:
+		var instance = controllerClass.instance()
+		instance.target = $Ball 
+		$RightPlayer.set_controller(instance)
+	
 	# start game
 	$Ball.restart(Vector2())
 

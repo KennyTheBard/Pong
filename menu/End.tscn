@@ -39,7 +39,6 @@ margin_top = 155.0
 margin_right = 1025.0
 margin_bottom = 304.0
 custom_fonts/font = SubResource( 3 )
-text = "placeholder"
 align = 1
 valign = 1
 __meta__ = {
