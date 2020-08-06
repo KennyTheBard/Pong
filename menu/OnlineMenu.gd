@@ -50,15 +50,9 @@ remotesync func register_player(info):
 
 func _on_Username_text_changed(username):
 	username = username.replace(" ","").strip_escapes()
-	if username.length() > 20:
-		username = username.substr(0, 20)
 	$Username.text = username
 	$Username.set_cursor_position(username.length())
 	network.player_info["name"] = username
-
-
-func _on_Host_pressed():
-	network.create_server()
 
 
 func _on_Join_pressed():

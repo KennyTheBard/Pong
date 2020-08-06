@@ -4,6 +4,9 @@ const DEFAULT_IP = "127.0.0.1"
 const DEFAULT_PORT = 10101
 const MAX_PLAYERS = 2
 
+var ip = DEFAULT_IP
+var port = DEFAULT_PORT
+
 var other_player_info = null
 var player_info = { "name" : "Anon" + str(OS.get_system_time_msecs() & 10000) }
 
@@ -19,3 +22,6 @@ func join_server():
 	peer.create_client(DEFAULT_IP, DEFAULT_PORT)
 	get_tree().network_peer = peer
 
+
+func close_connection():
+	get_tree().network_peer = null

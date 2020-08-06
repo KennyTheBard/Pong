@@ -34,3 +34,16 @@ func _on_OnlineMenuBack_pressed():
 	for c in $Menus.get_children():
 		c.visible = false
 	$Menus/MainMenu.visible = true
+
+
+func _on_HostMenuBack_pressed():
+	for c in $Menus.get_children():
+		c.visible = false
+	$Menus/OnlineMenu.visible = true
+	network.close_connection()
+
+
+func _on_Host_pressed():
+	for c in $Menus.get_children():
+		c.visible = false
+	$Menus/HostMenu.visible = true

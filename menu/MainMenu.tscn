@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Kenney Bold.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://menu/BallsManager.gd" type="Script" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://menu/MainMenu.gd" type="Script" id=4]
 [ext_resource path="res://menu/LocalMenu.gd" type="Script" id=5]
 [ext_resource path="res://menu/OnlineMenu.gd" type="Script" id=6]
+[ext_resource path="res://menu/HostMenu.gd" type="Script" id=7]
+[ext_resource path="res://Kenney Future.ttf" type="DynamicFontData" id=8]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0 )
@@ -38,6 +40,9 @@ font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=9]
 font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=10]
+font_data = ExtResource( 8 )
 
 [node name="Menu" type="Node2D"]
 script = ExtResource( 4 )
@@ -243,73 +248,10 @@ __meta__ = {
 }
 
 [node name="OnlineMenu" type="Control" parent="Menus"]
+visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 6 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Host" type="Button" parent="Menus/OnlineMenu"]
-margin_left = 360.0
-margin_top = 399.0
-margin_right = 678.0
-margin_bottom = 457.0
-focus_mode = 0
-custom_fonts/font = SubResource( 6 )
-enabled_focus_mode = 0
-text = "Host"
-flat = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Join" type="Button" parent="Menus/OnlineMenu"]
-margin_left = 636.0
-margin_top = 402.0
-margin_right = 937.0
-margin_bottom = 460.0
-focus_mode = 0
-custom_fonts/font = SubResource( 6 )
-enabled_focus_mode = 0
-text = "Join"
-flat = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="OnlineMenuBack" type="Button" parent="Menus/OnlineMenu"]
-margin_left = 119.0
-margin_top = 399.0
-margin_right = 367.0
-margin_bottom = 457.0
-focus_mode = 0
-custom_fonts/font = SubResource( 6 )
-enabled_focus_mode = 0
-text = "Back"
-flat = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Username" type="LineEdit" parent="Menus/OnlineMenu"]
-margin_left = 434.097
-margin_top = 295.173
-margin_right = 801.097
-margin_bottom = 360.173
-custom_fonts/font = SubResource( 7 )
-max_length = 20
-clear_button_enabled = true
-
-[node name="UsernameLabel" type="Label" parent="Menus/OnlineMenu"]
-margin_left = 169.097
-margin_top = 306.173
-margin_right = 411.097
-margin_bottom = 350.173
-custom_fonts/font = SubResource( 8 )
-text = "Username"
-align = 2
-valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -327,6 +269,75 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="UsernameLabel" type="Label" parent="Menus/OnlineMenu"]
+margin_left = 169.097
+margin_top = 306.173
+margin_right = 411.097
+margin_bottom = 350.173
+custom_fonts/font = SubResource( 6 )
+text = "Username"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Username" type="LineEdit" parent="Menus/OnlineMenu"]
+margin_left = 434.097
+margin_top = 295.173
+margin_right = 801.097
+margin_bottom = 360.173
+custom_fonts/font = SubResource( 7 )
+max_length = 20
+clear_button_enabled = true
+caret_blink = true
+caret_blink_speed = 0.35
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Host" type="Button" parent="Menus/OnlineMenu"]
+margin_left = 360.0
+margin_top = 399.0
+margin_right = 678.0
+margin_bottom = 457.0
+focus_mode = 0
+custom_fonts/font = SubResource( 8 )
+enabled_focus_mode = 0
+text = "Host"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Join" type="Button" parent="Menus/OnlineMenu"]
+margin_left = 636.0
+margin_top = 402.0
+margin_right = 937.0
+margin_bottom = 460.0
+focus_mode = 0
+custom_fonts/font = SubResource( 8 )
+enabled_focus_mode = 0
+text = "Join"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OnlineMenuBack" type="Button" parent="Menus/OnlineMenu"]
+margin_left = 119.0
+margin_top = 399.0
+margin_right = 367.0
+margin_bottom = 457.0
+focus_mode = 0
+custom_fonts/font = SubResource( 8 )
+enabled_focus_mode = 0
+text = "Back"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Message" type="Label" parent="Menus/OnlineMenu"]
 margin_left = 81.0
 margin_top = 503.0
@@ -338,13 +349,149 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="HostMenu" type="Control" parent="Menus"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Logo" type="Label" parent="Menus/HostMenu"]
+margin_left = 2.56805
+margin_top = 2.0
+margin_right = 1023.57
+margin_bottom = 331.0
+custom_fonts/font = SubResource( 4 )
+text = "Pong"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="IPLabel" type="Label" parent="Menus/HostMenu"]
+margin_left = -86.0556
+margin_top = 274.317
+margin_right = 155.944
+margin_bottom = 318.317
+custom_fonts/font = SubResource( 6 )
+text = "IP"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="IP" type="LineEdit" parent="Menus/HostMenu"]
+margin_left = 178.944
+margin_top = 263.317
+margin_right = 545.944
+margin_bottom = 328.317
+custom_fonts/font = SubResource( 7 )
+max_length = 15
+clear_button_enabled = true
+caret_blink = true
+caret_blink_speed = 0.35
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PortLabel" type="Label" parent="Menus/HostMenu"]
+margin_left = -86.0556
+margin_top = 371.257
+margin_right = 155.944
+margin_bottom = 415.257
+custom_fonts/font = SubResource( 6 )
+text = "Port"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Port" type="LineEdit" parent="Menus/HostMenu"]
+margin_left = 178.944
+margin_top = 360.257
+margin_right = 545.944
+margin_bottom = 425.257
+custom_fonts/font = SubResource( 7 )
+max_length = 5
+clear_button_enabled = true
+caret_blink = true
+caret_blink_speed = 0.35
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StartServer" type="Button" parent="Menus/HostMenu"]
+margin_left = 475.0
+margin_top = 484.0
+margin_right = 1022.0
+margin_bottom = 542.0
+focus_mode = 0
+custom_fonts/font = SubResource( 8 )
+enabled_focus_mode = 0
+text = "Start server"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StopServer" type="Button" parent="Menus/HostMenu"]
+visible = false
+margin_left = 475.0
+margin_top = 484.0
+margin_right = 1022.0
+margin_bottom = 542.0
+focus_mode = 0
+custom_fonts/font = SubResource( 8 )
+enabled_focus_mode = 0
+text = "Stop server"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HostMenuBack" type="Button" parent="Menus/HostMenu"]
+margin_left = 9.0
+margin_top = 484.0
+margin_right = 564.0
+margin_bottom = 542.0
+focus_mode = 0
+custom_fonts/font = SubResource( 8 )
+enabled_focus_mode = 0
+text = "Back"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Log" type="RichTextLabel" parent="Menus/HostMenu"]
+margin_left = 593.129
+margin_top = 246.383
+margin_right = 987.129
+margin_bottom = 449.383
+custom_fonts/normal_font = SubResource( 10 )
+bbcode_enabled = true
+scroll_following = true
+
+[node name="JoinMenu" type="Control" parent="Menus"]
+margin_right = 40.0
+margin_bottom = 40.0
 [connection signal="pressed" from="Menus/MainMenu/Local" to="." method="_on_Local_pressed"]
 [connection signal="pressed" from="Menus/MainMenu/Online" to="." method="_on_Online_pressed"]
 [connection signal="pressed" from="Menus/MainMenu/Exit" to="." method="_on_Exit_pressed"]
 [connection signal="pressed" from="Menus/LocalMenu/LocalMenuBack" to="." method="_on_LocalMenuBack_pressed"]
 [connection signal="pressed" from="Menus/LocalMenu/LocalMenuStart" to="Menus/LocalMenu" method="_on_LocalMenuStart_pressed"]
 [connection signal="value_changed" from="Menus/LocalMenu/ValueSlider" to="Menus/LocalMenu" method="_on_ValueSlider_value_changed"]
-[connection signal="pressed" from="Menus/OnlineMenu/Host" to="Menus/OnlineMenu" method="_on_Host_pressed"]
+[connection signal="text_changed" from="Menus/OnlineMenu/Username" to="Menus/OnlineMenu" method="_on_Username_text_changed"]
+[connection signal="pressed" from="Menus/OnlineMenu/Host" to="." method="_on_Host_pressed"]
 [connection signal="pressed" from="Menus/OnlineMenu/Join" to="Menus/OnlineMenu" method="_on_Join_pressed"]
 [connection signal="pressed" from="Menus/OnlineMenu/OnlineMenuBack" to="." method="_on_OnlineMenuBack_pressed"]
-[connection signal="text_changed" from="Menus/OnlineMenu/Username" to="Menus/OnlineMenu" method="_on_Username_text_changed"]
+[connection signal="text_changed" from="Menus/HostMenu/IP" to="Menus/HostMenu" method="_on_IP_text_changed"]
+[connection signal="text_changed" from="Menus/HostMenu/Port" to="Menus/HostMenu" method="_on_Port_text_changed"]
+[connection signal="pressed" from="Menus/HostMenu/StartServer" to="Menus/HostMenu" method="_on_StartServer_pressed"]
+[connection signal="pressed" from="Menus/HostMenu/StopServer" to="Menus/HostMenu" method="_on_StopServer_pressed"]
+[connection signal="pressed" from="Menus/HostMenu/HostMenuBack" to="." method="_on_HostMenuBack_pressed"]
