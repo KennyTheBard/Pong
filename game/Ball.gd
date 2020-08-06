@@ -1,5 +1,8 @@
 extends KinematicBody2D
 
+signal collided_paddle
+signal collided_wall
+
 export var start_speed : float = 500
 export var max_speed : float = 1500
 export var speed_per_sec : float = 30
@@ -51,8 +54,14 @@ func _physics_process(delta):
 			
 			# add the velocity length
 			velocity = velocity.length() * reflect_direction
+			
+			# emit signal for sound
+			emit_signal("collided_paddle")
 		else:
 			velocity = velocity.bounce(collision.normal)
+			
+			# emit signal for sound
+			emit_signal("collided_wall")
 
 
 func restart(start_postion):

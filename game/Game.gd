@@ -76,3 +76,13 @@ remote func set_host_position(position):
 
 remote func set_guest_position(position):
 	$RightPlayer.position = position
+
+
+func _on_Ball_collided_paddle():
+	var options = $Audio/Paddle
+	options.get_child(randi() % options.get_child_count()).play()
+
+
+func _on_Ball_collided_wall():
+	var options = $Audio/Wall
+	options.get_child(randi() % options.get_child_count()).play()

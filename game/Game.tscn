@@ -1,10 +1,20 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Kenney Bold.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://game/Game.gd" type="Script" id=2]
 [ext_resource path="res://game/Ball.tscn" type="PackedScene" id=3]
 [ext_resource path="res://game/Wall.tscn" type="PackedScene" id=4]
 [ext_resource path="res://game/Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/sounds/wall/impactWood_medium_000.ogg" type="AudioStream" id=6]
+[ext_resource path="res://assets/sounds/wall/impactWood_medium_003.ogg" type="AudioStream" id=7]
+[ext_resource path="res://assets/sounds/paddle/impactGlass_medium_003.ogg" type="AudioStream" id=8]
+[ext_resource path="res://assets/sounds/paddle/impactGlass_medium_000.ogg" type="AudioStream" id=9]
+[ext_resource path="res://assets/sounds/wall/impactWood_medium_001.ogg" type="AudioStream" id=10]
+[ext_resource path="res://assets/sounds/wall/impactWood_medium_002.ogg" type="AudioStream" id=11]
+[ext_resource path="res://assets/sounds/wall/impactWood_medium_004.ogg" type="AudioStream" id=12]
+[ext_resource path="res://assets/sounds/paddle/impactGlass_medium_001.ogg" type="AudioStream" id=13]
+[ext_resource path="res://assets/sounds/paddle/impactGlass_medium_002.ogg" type="AudioStream" id=14]
+[ext_resource path="res://assets/sounds/paddle/impactGlass_medium_004.ogg" type="AudioStream" id=15]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0 )
@@ -120,5 +130,43 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="Paddle" type="Node" parent="Audio"]
+
+[node name="AudioPlayer" type="AudioStreamPlayer" parent="Audio/Paddle"]
+stream = ExtResource( 9 )
+
+[node name="AudioPlayer2" type="AudioStreamPlayer" parent="Audio/Paddle"]
+stream = ExtResource( 13 )
+
+[node name="AudioPlayer3" type="AudioStreamPlayer" parent="Audio/Paddle"]
+stream = ExtResource( 14 )
+
+[node name="AudioPlayer4" type="AudioStreamPlayer" parent="Audio/Paddle"]
+stream = ExtResource( 8 )
+
+[node name="AudioPlayer5" type="AudioStreamPlayer" parent="Audio/Paddle"]
+stream = ExtResource( 15 )
+
+[node name="Wall" type="Node" parent="Audio"]
+
+[node name="AudioPlayer6" type="AudioStreamPlayer" parent="Audio/Wall"]
+stream = ExtResource( 6 )
+
+[node name="AudioPlayer7" type="AudioStreamPlayer" parent="Audio/Wall"]
+stream = ExtResource( 10 )
+
+[node name="AudioPlayer8" type="AudioStreamPlayer" parent="Audio/Wall"]
+stream = ExtResource( 11 )
+
+[node name="AudioPlayer9" type="AudioStreamPlayer" parent="Audio/Wall"]
+stream = ExtResource( 7 )
+
+[node name="AudioPlayer10" type="AudioStreamPlayer" parent="Audio/Wall"]
+stream = ExtResource( 12 )
 [connection signal="body_entered" from="World/RightGoal" to="." method="_on_RightGoal_body_entered"]
 [connection signal="body_entered" from="World/LeftGoal" to="." method="_on_LeftGoal_body_entered"]
+[connection signal="collided_paddle" from="Ball" to="." method="_on_Ball_collided_paddle"]
+[connection signal="collided_wall" from="Ball" to="." method="_on_Ball_collided_wall"]
