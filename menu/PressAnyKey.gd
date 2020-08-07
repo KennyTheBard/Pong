@@ -18,11 +18,6 @@ func _input(event):
 			get_tree().change_scene("res://menu/MainMenu.tscn")
 
 
-func _on_Visible_timeout():
-	visible = false
-	$Invisible.start()
+func _on_Timer_timeout():
+	visible = !visible
 
-
-func _on_Invisible_timeout():
-	visible = true
-	$Visible.start()

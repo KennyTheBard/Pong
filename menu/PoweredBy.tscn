@@ -41,32 +41,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BackgroundActivity" type="Node2D" parent="."]
-
-[node name="Bounds" type="Node2D" parent="BackgroundActivity"]
-
-[node name="UpperWall" type="StaticBody2D" parent="BackgroundActivity/Bounds" instance=ExtResource( 2 )]
-position = Vector2( 522.421, -103.811 )
-scale = Vector2( 1.2, 1 )
-
-[node name="LowerWall" type="StaticBody2D" parent="BackgroundActivity/Bounds" instance=ExtResource( 2 )]
-position = Vector2( 519.148, 724.281 )
-scale = Vector2( 1.2, 1 )
-
-[node name="LeftWall" type="StaticBody2D" parent="BackgroundActivity/Bounds" instance=ExtResource( 2 )]
-position = Vector2( -119.395, 312.603 )
-rotation = 1.5708
-scale = Vector2( 1.1, 1 )
-
-[node name="RightWall" type="StaticBody2D" parent="BackgroundActivity/Bounds" instance=ExtResource( 2 )]
-position = Vector2( 1164.37, 284.491 )
-rotation = 1.5708
-scale = Vector2( 1.1, 1 )
-
-[node name="Balls" type="Node2D" parent="BackgroundActivity"]
-position = Vector2( 515.109, 300 )
-script = ExtResource( 3 )
-
 [node name="PressAnyKey" type="Label" parent="."]
 margin_top = 476.0
 margin_right = 1021.0
@@ -81,13 +55,33 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Visible" type="Timer" parent="PressAnyKey"]
-wait_time = 0.25
-one_shot = true
+[node name="Timer" type="Timer" parent="PressAnyKey"]
+wait_time = 0.35
 autostart = true
 
-[node name="Invisible" type="Timer" parent="PressAnyKey"]
-wait_time = 0.25
-one_shot = true
-[connection signal="timeout" from="PressAnyKey/Visible" to="PressAnyKey" method="_on_Visible_timeout"]
-[connection signal="timeout" from="PressAnyKey/Invisible" to="PressAnyKey" method="_on_Invisible_timeout"]
+[node name="BackgroundActivity" type="Node2D" parent="."]
+
+[node name="Bounds" type="Node2D" parent="BackgroundActivity"]
+
+[node name="UpperWall" parent="BackgroundActivity/Bounds" instance=ExtResource( 2 )]
+position = Vector2( 522.421, -103.811 )
+scale = Vector2( 1.2, 1 )
+
+[node name="LowerWall" parent="BackgroundActivity/Bounds" instance=ExtResource( 2 )]
+position = Vector2( 519.148, 724.281 )
+scale = Vector2( 1.2, 1 )
+
+[node name="LeftWall" parent="BackgroundActivity/Bounds" instance=ExtResource( 2 )]
+position = Vector2( -119.395, 312.603 )
+rotation = 1.5708
+scale = Vector2( 1.1, 1 )
+
+[node name="RightWall" parent="BackgroundActivity/Bounds" instance=ExtResource( 2 )]
+position = Vector2( 1164.37, 284.491 )
+rotation = 1.5708
+scale = Vector2( 1.1, 1 )
+
+[node name="Balls" type="Node2D" parent="BackgroundActivity"]
+position = Vector2( 515.109, 300 )
+script = ExtResource( 3 )
+[connection signal="timeout" from="PressAnyKey/Timer" to="PressAnyKey" method="_on_Timer_timeout"]

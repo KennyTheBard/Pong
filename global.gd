@@ -8,4 +8,6 @@ var against_computer : bool = false
 func _ready():
 	pass # Replace with function body.
 
-
+func reset():
+	winner = ""
+	against_computer = false

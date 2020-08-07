@@ -11,4 +11,5 @@ func _on_Replay_pressed():
 
 
 func _on_BackToMainMenu_pressed():
+	global.reset()
 	get_tree().change_scene("res://menu/MainMenu.tscn")

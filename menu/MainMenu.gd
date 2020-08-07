@@ -18,7 +18,7 @@ func _change_menu(menu):
 	menu.visible = true
 
 func _on_Local_pressed():
-	_change_menu($Menus/LocalMenu)
+	_change_menu($Menus/MatchSettings)
 
 
 func _on_LocalMenuBack_pressed():
@@ -64,3 +64,8 @@ func _on_Multiplayer_pressed():
 
 func _on_MPMenuBack_pressed():
 	_change_menu($Menus/MainMenu)
+
+
+func _on_AgainstComputer_pressed():
+	global.against_computer = true
+	_change_menu($Menus/MatchSettings)
