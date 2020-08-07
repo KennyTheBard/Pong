@@ -57,6 +57,7 @@ func _on_Singleplayer_pressed():
 
 
 func _on_SPMenuBack_pressed():
+	global.against_computer = false
 	_change_menu($Menus/MainMenu)
 
 
@@ -69,7 +70,7 @@ func _on_MPMenuBack_pressed():
 
 
 func _on_AgainstComputer_pressed():
-	global.against_computer = false
+	global.against_computer = true
 	global.back_to = $Menus/SingleplayerMenu
 	_change_menu($Menus/MatchSettings)
 
