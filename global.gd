@@ -1,6 +1,8 @@
 extends Node
 
 var play_to : int = 1
+var back_to
+
 var winner : String = ""
 var against_computer : bool = false
 

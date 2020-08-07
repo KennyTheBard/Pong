@@ -1,0 +1,105 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Kenney Bold.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://menu/AssignControls.gd" type="Script" id=2]
+[ext_resource path="res://menu/PressAnyKey.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=4]
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 19
+font_data = ExtResource( 1 )
+
+[node name="LeftControls" type="Control"]
+margin_left = 124.0
+margin_top = 228.0
+margin_right = 435.0
+margin_bottom = 438.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Player" type="Label" parent="."]
+margin_right = 278.0
+margin_bottom = 70.0
+custom_fonts/font = SubResource( 4 )
+text = "Left player"
+align = 1
+
+[node name="UpLabel" type="Label" parent="."]
+margin_top = 37.0
+margin_right = 107.0
+margin_bottom = 93.0
+custom_fonts/font = SubResource( 4 )
+text = "UP ..."
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Up" type="Button" parent="."]
+margin_left = 125.0
+margin_top = 37.0
+margin_right = 277.0
+margin_bottom = 93.0
+focus_mode = 0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color_hover = Color( 0.470588, 0.607843, 0.843137, 1 )
+enabled_focus_mode = 0
+flat = true
+align = 0
+
+[node name="DownLabel" type="Label" parent="."]
+margin_left = -1.0
+margin_top = 80.0
+margin_right = 107.0
+margin_bottom = 136.0
+custom_fonts/font = SubResource( 4 )
+text = "Down ..."
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Down" type="Button" parent="."]
+margin_left = 125.0
+margin_top = 80.243
+margin_right = 274.0
+margin_bottom = 136.243
+focus_mode = 0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color_hover = Color( 0.470588, 0.607843, 0.843137, 1 )
+enabled_focus_mode = 0
+flat = true
+align = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PressAnyKey" type="Label" parent="."]
+margin_left = -366.364
+margin_top = 93.0551
+margin_right = 654.636
+margin_bottom = 217.055
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Press any key"
+align = 1
+valign = 1
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+hidden = true
+
+[node name="Timer" type="Timer" parent="PressAnyKey"]
+wait_time = 0.35
+autostart = true
+[connection signal="pressed" from="Up" to="." method="_on_Up_pressed"]
+[connection signal="pressed" from="Down" to="." method="_on_Down_pressed"]
+[connection signal="pressed_any_key" from="PressAnyKey" to="." method="_on_PressAnyKey_pressed_any_key"]
+[connection signal="timeout" from="PressAnyKey/Timer" to="PressAnyKey" method="_on_Timer_timeout"]

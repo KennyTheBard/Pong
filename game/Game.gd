@@ -9,6 +9,12 @@ var online : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	# set players inputs
+	$LeftPlayer.move_up = "left_player_up"
+	$LeftPlayer.move_down = "left_player_down"
+	$RightPlayer.move_up = "right_player_up"
+	$RightPlayer.move_down = "right_player_down"
+	
 	# check if the game is online
 	online = network.other_player_info != null
 	

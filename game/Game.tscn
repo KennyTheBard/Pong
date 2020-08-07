@@ -70,13 +70,9 @@ shape = SubResource( 3 )
 
 [node name="LeftPlayer" parent="." instance=ExtResource( 5 )]
 position = Vector2( -475, 0 )
-move_up = "w"
-move_down = "s"
 
 [node name="RightPlayer" parent="." instance=ExtResource( 5 )]
 position = Vector2( 475, 0 )
-move_up = "arrow_up"
-move_down = "arrow_down"
 
 [node name="Ball" parent="." instance=ExtResource( 3 )]
 

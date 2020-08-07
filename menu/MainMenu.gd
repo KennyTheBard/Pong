@@ -18,11 +18,13 @@ func _change_menu(menu):
 	menu.visible = true
 
 func _on_Local_pressed():
+	global.back_to = $Menus/MultiplayerMenu
 	_change_menu($Menus/MatchSettings)
 
 
 func _on_LocalMenuBack_pressed():
-	_change_menu($Menus/MainMenu)
+	_change_menu(global.back_to)
+
 
 func _on_Online_pressed():
 	_change_menu($Menus/OnlineMenu)
@@ -67,5 +69,14 @@ func _on_MPMenuBack_pressed():
 
 
 func _on_AgainstComputer_pressed():
-	global.against_computer = true
+	global.against_computer = false
+	global.back_to = $Menus/SingleplayerMenu
 	_change_menu($Menus/MatchSettings)
+
+
+func _on_Settings_pressed():
+	_change_menu($Menus/SettingsMenu)
+
+
+func _on_SettingsBack_pressed():
+	_change_menu($Menus/MainMenu)

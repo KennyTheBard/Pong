@@ -1,10 +1,8 @@
 extends Label
 
+signal pressed_any_key(event)
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
+export var hidden : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -15,9 +13,11 @@ func _ready():
 func _input(event):
 	if event is InputEventKey or event is InputEventMouseButton:
 		if event.pressed:
-			get_tree().change_scene("res://menu/MainMenu.tscn")
+			emit_signal("pressed_any_key", event)
 
 
 func _on_Timer_timeout():
-	visible = !visible
-
+	if hidden:
+		visible = false
+	else:
+		visible = !visible
