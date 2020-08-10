@@ -291,7 +291,6 @@ margin_right = 700.0
 margin_bottom = 368.203
 focus_mode = 0
 custom_fonts/font = SubResource( 4 )
-disabled = true
 enabled_focus_mode = 0
 text = "Online"
 flat = true
@@ -314,6 +313,7 @@ __meta__ = {
 }
 
 [node name="SettingsMenu" type="Control" parent="Menus"]
+visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 __meta__ = {
@@ -547,7 +547,6 @@ __meta__ = {
 }
 
 [node name="HostMenu" type="Control" parent="Menus"]
-visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 7 )
@@ -622,10 +621,24 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="StartServer" type="Button" parent="Menus/HostMenu"]
-margin_left = 475.0
+[node name="HostMenuBack" type="Button" parent="Menus/HostMenu"]
+margin_left = 9.0
 margin_top = 484.0
-margin_right = 1022.0
+margin_right = 362.0
+margin_bottom = 542.0
+focus_mode = 0
+custom_fonts/font = SubResource( 8 )
+enabled_focus_mode = 0
+text = "Back"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StartServer" type="Button" parent="Menus/HostMenu"]
+margin_left = 313.0
+margin_top = 484.0
+margin_right = 716.0
 margin_bottom = 542.0
 focus_mode = 0
 custom_fonts/font = SubResource( 8 )
@@ -637,10 +650,9 @@ __meta__ = {
 }
 
 [node name="StopServer" type="Button" parent="Menus/HostMenu"]
-visible = false
-margin_left = 475.0
+margin_left = 333.0
 margin_top = 484.0
-margin_right = 1022.0
+margin_right = 686.0
 margin_bottom = 542.0
 focus_mode = 0
 custom_fonts/font = SubResource( 8 )
@@ -651,15 +663,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HostMenuBack" type="Button" parent="Menus/HostMenu"]
-margin_left = 9.0
-margin_top = 484.0
-margin_right = 564.0
-margin_bottom = 542.0
+[node name="HostStartGame" type="Button" parent="Menus/HostMenu"]
+margin_left = 621.221
+margin_top = 484.016
+margin_right = 1024.22
+margin_bottom = 542.016
 focus_mode = 0
 custom_fonts/font = SubResource( 8 )
+disabled = true
 enabled_focus_mode = 0
-text = "Back"
+text = "Start game"
 flat = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -777,7 +790,7 @@ margin_bottom = 542.0
 focus_mode = 0
 custom_fonts/font = SubResource( 8 )
 enabled_focus_mode = 0
-text = "Cancel"
+text = "Disconnect"
 flat = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -829,9 +842,10 @@ __meta__ = {
 [connection signal="pressed" from="Menus/OnlineMenu/OnlineMenuBack" to="." method="_on_OnlineMenuBack_pressed"]
 [connection signal="text_changed" from="Menus/HostMenu/IP" to="Menus/HostMenu" method="_on_IP_text_changed"]
 [connection signal="text_changed" from="Menus/HostMenu/Port" to="Menus/HostMenu" method="_on_Port_text_changed"]
+[connection signal="pressed" from="Menus/HostMenu/HostMenuBack" to="." method="_on_HostMenuBack_pressed"]
 [connection signal="pressed" from="Menus/HostMenu/StartServer" to="Menus/HostMenu" method="_on_StartServer_pressed"]
 [connection signal="pressed" from="Menus/HostMenu/StopServer" to="Menus/HostMenu" method="_on_StopServer_pressed"]
-[connection signal="pressed" from="Menus/HostMenu/HostMenuBack" to="." method="_on_HostMenuBack_pressed"]
+[connection signal="pressed" from="Menus/HostMenu/HostStartGame" to="." method="_on_HostStartGame_pressed"]
 [connection signal="text_changed" from="Menus/JoinMenu/Form/IP" to="Menus/JoinMenu" method="_on_IP_text_changed"]
 [connection signal="text_changed" from="Menus/JoinMenu/Form/Port" to="Menus/JoinMenu" method="_on_Port_text_changed"]
 [connection signal="pressed" from="Menus/JoinMenu/JoinServer" to="Menus/JoinMenu" method="_on_JoinServer_pressed"]

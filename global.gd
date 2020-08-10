@@ -6,6 +6,7 @@ var back_to
 var winner : String = ""
 var against_computer : bool = false
 var training_mode : bool = false
+var online_game : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -15,3 +16,4 @@ func reset():
 	winner = ""
 	against_computer = false
 	training_mode = false
+	online_game = false

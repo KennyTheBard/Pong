@@ -25,3 +25,13 @@ func join_server():
 
 func close_connection():
 	get_tree().network_peer = null
+	other_player_info = null
+
+
+func exchange_info():
+	player_info["id"] = get_tree().get_network_unique_id()
+	rpc("set_other_player_info", player_info)
+
+
+remote func set_other_player_info(info):
+	other_player_info = info

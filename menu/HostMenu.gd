@@ -14,14 +14,6 @@ func _ready():
 	# bind base network signals
 	get_tree().connect("network_peer_connected", self, "_on_player_connected")
 	get_tree().connect("network_peer_disconnected", self, "_on_player_disconnected")
-	get_tree().connect("connected_to_server", self, "_on_connected_ok")
-	get_tree().connect("connection_failed", self, "_on_connected_fail")
-	get_tree().connect("server_disconnected", self, "_on_server_disconnected")
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
 
 
 func _log(text):
@@ -43,6 +35,9 @@ func _on_Port_text_changed(new_text):
 func _on_StartServer_pressed():
 	$StartServer.visible = false
 	$StopServer.visible = true
+	$IP.editable = false
+	$Port.editable = false
+	
 	network.create_server()
 	_log("server started")
 
@@ -50,15 +45,20 @@ func _on_StartServer_pressed():
 func _on_StopServer_pressed():
 	$StartServer.visible = true
 	$StopServer.visible = false
+	$IP.editable = true
+	$Port.editable = true
+	
 	network.close_connection()
 	_log("server stopped")
 
 func _on_player_connected(id):
 	# Called on both clients and server when a peer connects. Send my info to it.
-	rpc("register_player", network.player_info)
+	network.exchange_info()
+	$HostStartGame.disabled = false
 	_log("Player #" + str(id) + " connected")
 
 
 func _on_player_disconnected(id):
 	network.other_player_info = null
+	$HostStartGame.disabled = true
 	_log("Player " + str(id) + " disconnected")

@@ -70,6 +70,7 @@ func _on_CancelJoining_pressed():
 
 
 func _on_connected_ok():
+	network.exchange_info()
 	$Message.text = "Connected!"
 	$Message.add_color_override("font_color", Color(0, 1, 0))
 	pending_connection = false
@@ -86,3 +87,4 @@ func _on_connected_fail():
 	$Message.text = "Server unreachable!"
 	$Message.add_color_override("font_color", Color(1, 0, 0))
 	pending_connection = false
+

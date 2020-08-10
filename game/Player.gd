@@ -15,8 +15,13 @@ var controller = null
 func _ready():
 	paddle_height = ($Sprite.texture.get_size() * $Sprite.scale).y
 
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
+	# if this is not 
+	if global.online_game and get_network_master() != get_tree().get_network_unique_id():
+		return
+	
 	velocity = Vector2()
 	
 	# get inputs
@@ -30,9 +35,19 @@ func _physics_process(delta):
 	
 	# resolve collision
 	move_and_collide(velocity)
+	
+	# update puppet player's position
+	if global.online_game:
+		rpc_unreliable("set_position", position)
+
 
 func get_paddle_height() -> float:
 	return paddle_height
 
+
 func set_controller(new_controller):
 	controller = new_controller
+
+
+puppet func set_position(new_position : Vector2):
+	position = new_position

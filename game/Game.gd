@@ -5,8 +5,6 @@ onready var controllerClass = preload("res://game/Controller.tscn")
 var left_score : int = 0
 var right_score : int = 0
 
-var online : bool = false
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# set players inputs
@@ -15,17 +13,14 @@ func _ready():
 	$RightPlayer.move_up = "right_player_up"
 	$RightPlayer.move_down = "right_player_down"
 	
-	# check if the game is online
-	online = network.other_player_info != null
-	
 	# remove local inputs of other's player
-	if online:
+	if global.online_game:
 		if is_network_master():
-			$RightPlayer.move_up = ""
-			$RightPlayer.move_down = ""
+			$LeftPlayer.set_network_master(network.player_info["id"], true)
+			$RightPlayer.set_network_master(network.other_player_info["id"], true)
 		else:
-			$LeftPlayer.move_up = ""
-			$LeftPlayer.move_down = ""
+			$LeftPlayer.set_network_master(network.other_player_info["id"], true)
+			$RightPlayer.set_network_master(network.player_info["id"], true)
 	
 	# game against bot
 	if global.against_computer:
@@ -46,23 +41,16 @@ func _ready():
 
 
 func _process(delta):
-	# update score
-	$Score/LeftScore.text = str(left_score)
-	$Score/RightScore.text = str(right_score)
-	
 	# send updates about game state
-	if online:
+	if global.online_game:
 		if is_network_master():
 			rpc_unreliable("set_ball_state", $Ball.get_state())
-			rpc_unreliable("set_host_position", $LeftPlayer.position)
-		else:
-			rpc_unreliable("set_guest_position", $RightPlayer.position)
-
 
 
 func _on_RightGoal_body_entered(body):
 	if body == $Ball:
 		right_score += 1
+		$Score/RightScore.text = str(right_score)
 		if right_score == global.play_to:
 			global.winner = "Right player"
 			get_tree().change_scene("res://menu/End.tscn")
@@ -73,6 +61,7 @@ func _on_RightGoal_body_entered(body):
 func _on_LeftGoal_body_entered(body):
 	if body == $Ball:
 		left_score += 1
+		$Score/LeftScore.text = str(left_score)
 		if left_score == global.play_to:
 			global.winner = "Left player"
 			get_tree().change_scene("res://menu/End.tscn")
@@ -82,14 +71,6 @@ func _on_LeftGoal_body_entered(body):
 
 remote func set_ball_state(state):
 	$Ball.set_state(state)
-
-
-remote func set_host_position(position):
-	$LeftPlayer.position = position
-
-
-remote func set_guest_position(position):
-	$RightPlayer.position = position
 
 
 func _on_Ball_collided_paddle():

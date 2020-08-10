@@ -86,3 +86,14 @@ func _on_SettingsBack_pressed():
 func _on_Training_pressed():
 	global.training_mode = true
 	get_tree().change_scene("res://game/Game.tscn")
+
+
+func _on_HostStartGame_pressed():
+	rpc("start_online_game")
+	global.online_game = true
+	get_tree().change_scene("res://game/Game.tscn")
+
+
+remote func start_online_game():
+	global.online_game = true
+	get_tree().change_scene("res://game/Game.tscn")
