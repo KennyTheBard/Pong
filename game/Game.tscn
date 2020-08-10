@@ -35,10 +35,10 @@ script = ExtResource( 2 )
 
 [node name="Background" type="TextureRect" parent="."]
 modulate = Color( 0, 0, 0, 1 )
-margin_left = -596.0
-margin_top = -418.0
-margin_right = 598.0
-margin_bottom = 358.0
+margin_left = -596.25
+margin_top = -419.36
+margin_right = 597.75
+margin_bottom = 356.64
 texture = SubResource( 2 )
 expand = true
 __meta__ = {
@@ -88,15 +88,13 @@ __meta__ = {
 [node name="RightScore" type="Label" parent="Score"]
 anchor_top = -0.00116394
 anchor_bottom = -0.00116394
-margin_left = 7.63222
-margin_top = -280.85
-margin_right = 61.6322
-margin_bottom = -181.85
+margin_left = 21.2476
+margin_top = -282.0
+margin_right = 159.248
+margin_bottom = -183.0
 custom_fonts/font = SubResource( 4 )
 text = "0
 "
-align = 1
-valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -121,15 +119,14 @@ __meta__ = {
 [node name="LeftScore" type="Label" parent="Score"]
 anchor_top = -0.00116394
 anchor_bottom = -0.00116394
-margin_left = -55.1234
-margin_top = -281.603
-margin_right = -1.12335
-margin_bottom = -182.603
+margin_left = -130.0
+margin_top = -282.0
+margin_right = -14.0
+margin_bottom = -183.0
 custom_fonts/font = SubResource( 4 )
 text = "0
 "
-align = 1
-valign = 1
+align = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }

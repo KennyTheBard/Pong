@@ -51,6 +51,8 @@ func _on_RightGoal_body_entered(body):
 	if body == $Ball:
 		right_score += 1
 		$Score/RightScore.text = str(right_score)
+		print($Score/RightScore.text)
+		print($Score/RightScore.text.length())
 		if right_score == global.play_to:
 			global.winner = "Right player"
 			get_tree().change_scene("res://menu/End.tscn")
