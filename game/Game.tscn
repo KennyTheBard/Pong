@@ -51,10 +51,14 @@ current = true
 [node name="World" type="Node2D" parent="."]
 
 [node name="UpperWall" parent="World" instance=ExtResource( 4 )]
-position = Vector2( 0, 335 )
+position = Vector2( 0, 325.747 )
 
 [node name="LowerWall" parent="World" instance=ExtResource( 4 )]
-position = Vector2( -1, -335 )
+position = Vector2( -4.70123, -327.598 )
+
+[node name="TrainingWall" parent="World" instance=ExtResource( 4 )]
+position = Vector2( 533.831, 9.21677 )
+rotation = 1.5708
 
 [node name="RightGoal" type="Area2D" parent="World"]
 

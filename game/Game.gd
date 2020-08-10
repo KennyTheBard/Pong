@@ -33,6 +33,13 @@ func _ready():
 		instance.target = $Ball 
 		$RightPlayer.set_controller(instance)
 	
+	# training mode
+	if global.training_mode:
+		$RightPlayer.queue_free()
+		$World/LeftGoal.queue_free()
+	else:
+		$World/TrainingWall.queue_free()
+	
 	# start game
 	$Ball.restart(Vector2())
 

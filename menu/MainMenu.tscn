@@ -26,27 +26,27 @@ font_data = ExtResource( 1 )
 size = 24
 font_data = ExtResource( 1 )
 
+[sub_resource type="DynamicFont" id=5]
+font_data = ExtResource( 1 )
+
 [sub_resource type="DynamicFont" id=6]
+size = 24
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=7]
-size = 24
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=8]
-font_data = ExtResource( 1 )
-
-[sub_resource type="DynamicFont" id=9]
 size = 24
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=10]
+[sub_resource type="DynamicFont" id=9]
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=11]
+[sub_resource type="DynamicFont" id=10]
 font_data = ExtResource( 8 )
 
-[sub_resource type="DynamicFont" id=12]
+[sub_resource type="DynamicFont" id=11]
 size = 32
 font_data = ExtResource( 1 )
 
@@ -227,7 +227,6 @@ margin_right = 700.0
 margin_bottom = 368.203
 focus_mode = 0
 custom_fonts/font = SubResource( 4 )
-disabled = true
 enabled_focus_mode = 0
 text = "Training"
 flat = true
@@ -292,6 +291,7 @@ margin_right = 700.0
 margin_bottom = 368.203
 focus_mode = 0
 custom_fonts/font = SubResource( 4 )
+disabled = true
 enabled_focus_mode = 0
 text = "Online"
 flat = true
@@ -426,7 +426,7 @@ margin_left = 275.105
 margin_top = 255.158
 margin_right = 550.105
 margin_bottom = 295.158
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 5 )
 text = "Play  to"
 align = 2
 valign = 1
@@ -436,7 +436,7 @@ margin_left = 558.105
 margin_top = 257.158
 margin_right = 741.105
 margin_bottom = 296.158
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 5 )
 text = "1"
 valign = 1
 __meta__ = {
@@ -470,7 +470,7 @@ margin_left = 169.097
 margin_top = 306.173
 margin_right = 411.097
 margin_bottom = 350.173
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 6 )
 text = "Username"
 align = 2
 valign = 1
@@ -483,7 +483,7 @@ margin_left = 434.097
 margin_top = 295.173
 margin_right = 801.097
 margin_bottom = 360.173
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 7 )
 max_length = 20
 clear_button_enabled = true
 caret_blink = true
@@ -498,7 +498,7 @@ margin_top = 399.0
 margin_right = 678.0
 margin_bottom = 457.0
 focus_mode = 0
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 8 )
 enabled_focus_mode = 0
 text = "Host"
 flat = true
@@ -512,7 +512,7 @@ margin_top = 402.0
 margin_right = 937.0
 margin_bottom = 460.0
 focus_mode = 0
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 8 )
 enabled_focus_mode = 0
 text = "Join"
 flat = true
@@ -526,7 +526,7 @@ margin_top = 399.0
 margin_right = 367.0
 margin_bottom = 457.0
 focus_mode = 0
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 8 )
 enabled_focus_mode = 0
 text = "Back"
 flat = true
@@ -539,7 +539,7 @@ margin_left = 81.0
 margin_top = 503.0
 margin_right = 944.0
 margin_bottom = 566.0
-custom_fonts/font = SubResource( 10 )
+custom_fonts/font = SubResource( 9 )
 align = 1
 valign = 1
 __meta__ = {
@@ -573,7 +573,7 @@ margin_left = -86.0556
 margin_top = 274.317
 margin_right = 155.944
 margin_bottom = 318.317
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 6 )
 text = "IP"
 align = 2
 valign = 1
@@ -586,7 +586,7 @@ margin_left = 178.944
 margin_top = 263.317
 margin_right = 545.944
 margin_bottom = 328.317
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 7 )
 max_length = 15
 clear_button_enabled = true
 caret_blink = true
@@ -600,7 +600,7 @@ margin_left = -86.0556
 margin_top = 371.257
 margin_right = 155.944
 margin_bottom = 415.257
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 6 )
 text = "Port"
 align = 2
 valign = 1
@@ -613,7 +613,7 @@ margin_left = 178.944
 margin_top = 360.257
 margin_right = 545.944
 margin_bottom = 425.257
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 7 )
 max_length = 5
 clear_button_enabled = true
 caret_blink = true
@@ -628,7 +628,7 @@ margin_top = 484.0
 margin_right = 1022.0
 margin_bottom = 542.0
 focus_mode = 0
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 8 )
 enabled_focus_mode = 0
 text = "Start server"
 flat = true
@@ -643,7 +643,7 @@ margin_top = 484.0
 margin_right = 1022.0
 margin_bottom = 542.0
 focus_mode = 0
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 8 )
 enabled_focus_mode = 0
 text = "Stop server"
 flat = true
@@ -657,7 +657,7 @@ margin_top = 484.0
 margin_right = 564.0
 margin_bottom = 542.0
 focus_mode = 0
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 8 )
 enabled_focus_mode = 0
 text = "Back"
 flat = true
@@ -670,7 +670,7 @@ margin_left = 593.129
 margin_top = 246.383
 margin_right = 987.129
 margin_bottom = 449.383
-custom_fonts/normal_font = SubResource( 11 )
+custom_fonts/normal_font = SubResource( 10 )
 bbcode_enabled = true
 scroll_following = true
 
@@ -706,7 +706,7 @@ margin_left = 169.097
 margin_top = 274.317
 margin_right = 411.097
 margin_bottom = 318.317
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 6 )
 text = "IP"
 align = 2
 valign = 1
@@ -719,7 +719,7 @@ margin_left = 434.097
 margin_top = 263.317
 margin_right = 801.097
 margin_bottom = 328.317
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 7 )
 max_length = 15
 clear_button_enabled = true
 caret_blink = true
@@ -733,7 +733,7 @@ margin_left = 169.097
 margin_top = 371.257
 margin_right = 411.097
 margin_bottom = 415.257
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 6 )
 text = "Port"
 align = 2
 valign = 1
@@ -746,7 +746,7 @@ margin_left = 434.097
 margin_top = 360.257
 margin_right = 801.097
 margin_bottom = 425.257
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 7 )
 max_length = 5
 clear_button_enabled = true
 caret_blink = true
@@ -761,7 +761,7 @@ margin_top = 484.0
 margin_right = 1022.0
 margin_bottom = 542.0
 focus_mode = 0
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 8 )
 enabled_focus_mode = 0
 text = "Join server"
 flat = true
@@ -775,7 +775,7 @@ margin_top = 484.0
 margin_right = 1022.0
 margin_bottom = 542.0
 focus_mode = 0
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 8 )
 enabled_focus_mode = 0
 text = "Cancel"
 flat = true
@@ -789,7 +789,7 @@ margin_top = 484.0
 margin_right = 564.0
 margin_bottom = 542.0
 focus_mode = 0
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 8 )
 enabled_focus_mode = 0
 text = "Back"
 flat = true
@@ -802,7 +802,7 @@ margin_left = 6.0
 margin_top = 303.0
 margin_right = 1021.0
 margin_bottom = 381.0
-custom_fonts/font = SubResource( 12 )
+custom_fonts/font = SubResource( 11 )
 text = "Joining"
 align = 1
 valign = 1
@@ -814,6 +814,7 @@ __meta__ = {
 [connection signal="pressed" from="Menus/MainMenu/Settings" to="." method="_on_Settings_pressed"]
 [connection signal="pressed" from="Menus/MainMenu/Exit" to="." method="_on_Exit_pressed"]
 [connection signal="pressed" from="Menus/SingleplayerMenu/AgainstComputer" to="." method="_on_AgainstComputer_pressed"]
+[connection signal="pressed" from="Menus/SingleplayerMenu/Training" to="." method="_on_Training_pressed"]
 [connection signal="pressed" from="Menus/SingleplayerMenu/SPMenuBack" to="." method="_on_SPMenuBack_pressed"]
 [connection signal="pressed" from="Menus/MultiplayerMenu/Local" to="." method="_on_Local_pressed"]
 [connection signal="pressed" from="Menus/MultiplayerMenu/Online" to="." method="_on_Online_pressed"]

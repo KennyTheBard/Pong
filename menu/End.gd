@@ -3,7 +3,10 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$Winner.text = global.winner + " wins!"
+	if global.training_mode:
+		$Winner.text = "Training ends!"
+	else:
+		$Winner.text = global.winner + " wins!"
 
 
 func _on_Replay_pressed():

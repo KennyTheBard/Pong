@@ -81,3 +81,8 @@ func _on_Settings_pressed():
 
 func _on_SettingsBack_pressed():
 	_change_menu($Menus/MainMenu)
+
+
+func _on_Training_pressed():
+	global.training_mode = true
+	get_tree().change_scene("res://game/Game.tscn")
