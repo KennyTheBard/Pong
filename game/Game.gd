@@ -37,6 +37,7 @@ func _ready():
 	if global.training_mode:
 		$RightPlayer.queue_free()
 		$World/LeftGoal.queue_free()
+		$Score.visible = false
 	else:
 		$World/TrainingWall.queue_free()
 	

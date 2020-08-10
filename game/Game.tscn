@@ -80,7 +80,10 @@ position = Vector2( 475, 0 )
 
 [node name="Ball" parent="." instance=ExtResource( 3 )]
 
-[node name="Score" type="Node" parent="."]
+[node name="Score" type="Control" parent="."]
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="RightScore" type="Label" parent="Score"]
 anchor_top = -0.00116394
