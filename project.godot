@@ -25,6 +25,10 @@ config/windows_native_icon="res://icon.ico"
 global="*res://global.gd"
 network="*res://network.gd"
 
+[display]
+
+window/size/resizable=false
+
 [input]
 
 right_player_up={
