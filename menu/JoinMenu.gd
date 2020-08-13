@@ -40,15 +40,15 @@ func _process(delta):
 
 
 func _on_IP_text_changed(new_text):
-	$IP.text = new_text.replace(" ","").strip_escapes()
-	$IP.caret_position = $IP.text.length()
-	network.ip = $IP.text
+	$Form/IP.text = new_text.replace(" ","").strip_escapes()
+	$Form/IP.caret_position = $Form/IP.text.length()
+	network.ip = $Form/IP.text
 
 
 func _on_Port_text_changed(new_text):
-	$Port.text = new_text.replace(" ","").strip_escapes()
-	$Port.caret_position = $Port.text.length()
-	network.port = int($Port.text)
+	$Form/Port.text = new_text.replace(" ","").strip_escapes()
+	$Form/Port.caret_position = $Form/Port.text.length()
+	network.port = int($Form/Port.text)
 
 
 func _on_JoinServer_pressed():

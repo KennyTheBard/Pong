@@ -1,10 +1,11 @@
 extends Control
 
+var ipv6 : bool = false
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# set data in the text fields
-	$IP.text = network.ip
 	$Port.text = str(network.port)
 	
 	# set initial state
@@ -16,20 +17,10 @@ func _ready():
 	get_tree().connect("network_peer_disconnected", self, "_on_player_disconnected")
 
 
-func _log(text : String, color : String):
+func _log(text : String, color : String = "aqua"):
 	var t = OS.get_time()
 	var time = str(t.hour) + ":" + str(t.minute) + ":" + str(t.second)
 	$Log.append_bbcode("[color=" + color + "][ " + time + " ][/color] : " + text + "\n")
-
-
-func _log_status(text):
-	_log(text, "aqua")
-
-
-func _on_IP_text_changed(new_text):
-	$IP.text = new_text.replace(" ","").strip_escapes()
-	$IP.caret_position = $IP.text.length()
-	network.ip = $IP.text
 
 
 func _on_Port_text_changed(new_text):
@@ -41,21 +32,29 @@ func _on_Port_text_changed(new_text):
 func _on_StartServer_pressed():
 	$StartServer.visible = false
 	$StopServer.visible = true
-	$IP.editable = false
 	$Port.editable = false
+	$IPv6.disabled = true
 	
 	network.create_server()
-	_log_status("server started")
+	_log("server started")
+	
+	var message = "Listen on:\n"
+	for ip in IP.get_local_addresses():
+		if ipv6 or str(ip).find(":") < 0:
+			message += "[color=blue]<<[/color]" + str(ip) + "[color=blue]>>[/color]\n"
+	message.erase(message.length() - 1, 1)
+	_log(message)
 
 
 func _on_StopServer_pressed():
 	$StartServer.visible = true
 	$StopServer.visible = false
-	$IP.editable = true
 	$Port.editable = true
+	$IPv6.disabled = false
 	
 	network.close_connection()
-	_log_status("server stopped")
+	_log("server stopped", "yellow")
+
 
 func _on_player_connected(id):
 	# Called on both clients and server when a peer connects. Send my info to it.
@@ -68,3 +67,7 @@ func _on_player_disconnected(id):
 	network.other_player_info = null
 	$HostStartGame.disabled = true
 	_log("Player " + str(id) + " disconnected", "red")
+
+
+func _on_IPv6_toggled(button_pressed):
+	ipv6 = button_pressed

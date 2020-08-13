@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Kenney Bold.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://menu/BallsManager.gd" type="Script" id=2]
@@ -45,6 +45,9 @@ font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=10]
 font_data = ExtResource( 8 )
+
+[sub_resource type="DynamicFont" id=12]
+font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=11]
 size = 32
@@ -567,38 +570,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="IPLabel" type="Label" parent="Menus/HostMenu"]
-margin_left = -86.0556
-margin_top = 274.317
-margin_right = 155.944
-margin_bottom = 318.317
-custom_fonts/font = SubResource( 6 )
-text = "IP"
-align = 2
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="IP" type="LineEdit" parent="Menus/HostMenu"]
-margin_left = 178.944
-margin_top = 263.317
-margin_right = 545.944
-margin_bottom = 328.317
-custom_fonts/font = SubResource( 7 )
-max_length = 15
-clear_button_enabled = true
-caret_blink = true
-caret_blink_speed = 0.35
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="PortLabel" type="Label" parent="Menus/HostMenu"]
 margin_left = -86.0556
-margin_top = 371.257
+margin_top = 272.45
 margin_right = 155.944
-margin_bottom = 415.257
+margin_bottom = 316.45
 custom_fonts/font = SubResource( 6 )
 text = "Port"
 align = 2
@@ -608,10 +584,10 @@ __meta__ = {
 }
 
 [node name="Port" type="LineEdit" parent="Menus/HostMenu"]
-margin_left = 178.944
-margin_top = 360.257
-margin_right = 545.944
-margin_bottom = 425.257
+margin_left = 179.0
+margin_top = 261.0
+margin_right = 382.0
+margin_bottom = 326.0
 custom_fonts/font = SubResource( 7 )
 max_length = 5
 clear_button_enabled = true
@@ -679,13 +655,28 @@ __meta__ = {
 }
 
 [node name="Log" type="RichTextLabel" parent="Menus/HostMenu"]
-margin_left = 593.129
-margin_top = 246.383
-margin_right = 987.129
-margin_bottom = 449.383
+margin_left = 428.0
+margin_top = 246.0
+margin_right = 988.0
+margin_bottom = 449.0
 custom_fonts/normal_font = SubResource( 10 )
 bbcode_enabled = true
 scroll_following = true
+
+[node name="IPv6" type="CheckBox" parent="Menus/HostMenu"]
+margin_left = 277.0
+margin_top = 360.006
+margin_right = 378.0
+margin_bottom = 403.006
+focus_mode = 0
+custom_fonts/font = SubResource( 12 )
+enabled_focus_mode = 0
+text = "IPv6"
+flat = true
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="JoinMenu" type="Control" parent="Menus"]
 visible = false
@@ -840,12 +831,12 @@ __meta__ = {
 [connection signal="pressed" from="Menus/OnlineMenu/Host" to="." method="_on_Host_pressed"]
 [connection signal="pressed" from="Menus/OnlineMenu/Join" to="." method="_on_Join_pressed"]
 [connection signal="pressed" from="Menus/OnlineMenu/OnlineMenuBack" to="." method="_on_OnlineMenuBack_pressed"]
-[connection signal="text_changed" from="Menus/HostMenu/IP" to="Menus/HostMenu" method="_on_IP_text_changed"]
 [connection signal="text_changed" from="Menus/HostMenu/Port" to="Menus/HostMenu" method="_on_Port_text_changed"]
 [connection signal="pressed" from="Menus/HostMenu/HostMenuBack" to="." method="_on_HostMenuBack_pressed"]
 [connection signal="pressed" from="Menus/HostMenu/StartServer" to="Menus/HostMenu" method="_on_StartServer_pressed"]
 [connection signal="pressed" from="Menus/HostMenu/StopServer" to="Menus/HostMenu" method="_on_StopServer_pressed"]
 [connection signal="pressed" from="Menus/HostMenu/HostStartGame" to="." method="_on_HostStartGame_pressed"]
+[connection signal="toggled" from="Menus/HostMenu/IPv6" to="Menus/HostMenu" method="_on_IPv6_toggled"]
 [connection signal="text_changed" from="Menus/JoinMenu/Form/IP" to="Menus/JoinMenu" method="_on_IP_text_changed"]
 [connection signal="text_changed" from="Menus/JoinMenu/Form/Port" to="Menus/JoinMenu" method="_on_Port_text_changed"]
 [connection signal="pressed" from="Menus/JoinMenu/JoinServer" to="Menus/JoinMenu" method="_on_JoinServer_pressed"]

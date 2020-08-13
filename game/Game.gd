@@ -66,6 +66,14 @@ func _on_LeftGoal_body_entered(body):
 		$Score/LeftScore.text = str(left_score)
 		if left_score == global.play_to:
 			global.winner = "Left player"
+			
+			# set online game winner
+			if global.online_game:
+				if is_network_master():
+					global.winner = network.player_info["name"]
+				else:
+					global.winner = network.other_player_info["name"]
+			
 			get_tree().change_scene("res://menu/End.tscn")
 		else:
 			$Ball.restart(Vector2())
