@@ -29,6 +29,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if pending_connection:
+		$Message.add_color_override("font_color", Color(1, 1, 1))
 		timer += delta * 1000
 		if (timer > timer_limit):
 			timer -= timer_limit
@@ -39,13 +40,15 @@ func _process(delta):
 
 
 func _on_IP_text_changed(new_text):
-	$Form/IP.text = new_text.replace(" ","").strip_escapes()
-	network.ip = $Form/IP.text
+	$IP.text = new_text.replace(" ","").strip_escapes()
+	$IP.caret_position = $IP.text.length()
+	network.ip = $IP.text
 
 
 func _on_Port_text_changed(new_text):
-	$Form/Port.text = new_text.replace(" ","").strip_escapes()
-	network.port = int($Form/Port.text)
+	$Port.text = new_text.replace(" ","").strip_escapes()
+	$Port.caret_position = $Port.text.length()
+	network.port = int($Port.text)
 
 
 func _on_JoinServer_pressed():
