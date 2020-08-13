@@ -16,10 +16,14 @@ func _ready():
 	get_tree().connect("network_peer_disconnected", self, "_on_player_disconnected")
 
 
-func _log(text):
+func _log(text : String, color : String):
 	var t = OS.get_time()
 	var time = str(t.hour) + ":" + str(t.minute) + ":" + str(t.second)
-	$Log.append_bbcode("[color=green][ " + time + " ][/color] : " + text + "\n")
+	$Log.append_bbcode("[color=" + color + "][ " + time + " ][/color] : " + text + "\n")
+
+
+func _log_status(text):
+	_log(text, "aqua")
 
 
 func _on_IP_text_changed(new_text):
@@ -41,7 +45,7 @@ func _on_StartServer_pressed():
 	$Port.editable = false
 	
 	network.create_server()
-	_log("server started")
+	_log_status("server started")
 
 
 func _on_StopServer_pressed():
@@ -51,16 +55,16 @@ func _on_StopServer_pressed():
 	$Port.editable = true
 	
 	network.close_connection()
-	_log("server stopped")
+	_log_status("server stopped")
 
 func _on_player_connected(id):
 	# Called on both clients and server when a peer connects. Send my info to it.
 	network.exchange_info()
 	$HostStartGame.disabled = false
-	_log("Player #" + str(id) + " connected")
+	_log("Player #" + str(id) + " connected", "green")
 
 
 func _on_player_disconnected(id):
 	network.other_player_info = null
 	$HostStartGame.disabled = true
-	_log("Player " + str(id) + " disconnected")
+	_log("Player " + str(id) + " disconnected", "red")

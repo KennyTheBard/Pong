@@ -13,13 +13,13 @@ var player_info = { "name" : "Anon" + str(OS.get_system_time_msecs() & 10000) }
 
 func create_server():
 	var peer = NetworkedMultiplayerENet.new()
-	peer.create_server(DEFAULT_PORT, MAX_PLAYERS)
+	peer.create_server(port, MAX_PLAYERS)
 	get_tree().network_peer = peer
 
 
 func join_server():
 	var peer = NetworkedMultiplayerENet.new()
-	peer.create_client(DEFAULT_IP, DEFAULT_PORT)
+	peer.create_client(ip, port)
 	get_tree().network_peer = peer
 
 
