@@ -42,9 +42,11 @@ func _ready():
 
 func _process(delta):
 	# send updates about game state
-	if global.online_game:
-		if is_network_master():
-			rpc_unreliable("set_ball_state", $Ball.get_state())
+	if global.online_game and is_network_master():
+		rpc_unreliable("set_ball_state", $Ball.get_state())
+	if not global.online_game and Input.is_action_just_pressed("pause"):
+		$PauseMenu.activate()
+		get_tree().paused = true
 
 
 func _on_RightGoal_body_entered(body):
@@ -91,3 +93,4 @@ func _on_Ball_collided_paddle():
 func _on_Ball_collided_wall():
 	var options = $Audio/Wall
 	options.get_child(randi() % options.get_child_count()).play()
+	
